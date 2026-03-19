@@ -85,24 +85,7 @@ const handleJoin = () => {
                 </a>
               </div>
             </div>
-<<<<<<< HEAD
-
-            {/* SOCIAL */}
-            <div className="flex gap-3">
-              {[Linkedin, Twitter, Github].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-400 hover:text-white transition-all"
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
-          </div>
-=======
           </div> {/* ✅ FIXED: closed lg:col-span-2 */}
->>>>>>> 9210a4041b0b7f4964542e7c527589f03368f8bb
 
           {/* LINKS */}
           <div>
@@ -135,15 +118,6 @@ const handleJoin = () => {
               Have a workflow problem or idea? Let’s talk.
             </p>
 
-<<<<<<< HEAD
-            <Link
-              to="/reach-us"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-brand-400 to-brand-600 text-white font-semibold hover:scale-[1.05] active:scale-[0.98] transition-all shadow-lg"
-            >
-              Contact us
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-=======
             <div className="flex items-center bg-gray-800 rounded-lg overflow-hidden border border-gray-700 max-w-xs">
               <input
                 type="email"
@@ -158,7 +132,6 @@ const handleJoin = () => {
   {joined ? "Joined" : "Join"}
 </button>
             </div>
->>>>>>> 9210a4041b0b7f4964542e7c527589f03368f8bb
 
             <p className="text-xs text-surface-500 mt-4">
               We usually respond within 24 hours.

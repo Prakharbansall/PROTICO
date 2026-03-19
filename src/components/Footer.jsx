@@ -4,13 +4,24 @@ import {
   Mail,
   MapPin,
   ArrowUpRight,
-  Linkedin,
-  Twitter,
-  Github,
 } from "lucide-react";
+import { useState } from "react";
+
+
 
 function Footer() {
+
   const currentYear = new Date().getFullYear();
+
+const [joined, setJoined] = useState(false);
+
+const handleJoin = () => {
+  setJoined(true);
+
+  setTimeout(() => {
+    setJoined(false);
+  }, 2000); 
+};
 
   const quickLinks = [
     { name: "Home", path: "/" },
@@ -74,6 +85,7 @@ function Footer() {
                 </a>
               </div>
             </div>
+<<<<<<< HEAD
 
             {/* SOCIAL */}
             <div className="flex gap-3">
@@ -88,6 +100,9 @@ function Footer() {
               ))}
             </div>
           </div>
+=======
+          </div> {/* ✅ FIXED: closed lg:col-span-2 */}
+>>>>>>> 9210a4041b0b7f4964542e7c527589f03368f8bb
 
           {/* LINKS */}
           <div>
@@ -120,6 +135,7 @@ function Footer() {
               Have a workflow problem or idea? Let’s talk.
             </p>
 
+<<<<<<< HEAD
             <Link
               to="/reach-us"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-brand-400 to-brand-600 text-white font-semibold hover:scale-[1.05] active:scale-[0.98] transition-all shadow-lg"
@@ -127,6 +143,22 @@ function Footer() {
               Contact us
               <ArrowUpRight className="w-4 h-4" />
             </Link>
+=======
+            <div className="flex items-center bg-gray-800 rounded-lg overflow-hidden border border-gray-700 max-w-xs">
+              <input
+                type="email"
+                placeholder="Your email"
+                className="bg-transparent px-3 py-2 text-xs text-white outline-none w-full placeholder-gray-500"
+              />
+
+<button
+  onClick={handleJoin}
+  className="bg-primary-600 px-3 py-2 text-xs font-medium hover:bg-primary-700 transition"
+>
+  {joined ? "Joined" : "Join"}
+</button>
+            </div>
+>>>>>>> 9210a4041b0b7f4964542e7c527589f03368f8bb
 
             <p className="text-xs text-surface-500 mt-4">
               We usually respond within 24 hours.

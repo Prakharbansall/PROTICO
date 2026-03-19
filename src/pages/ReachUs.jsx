@@ -78,7 +78,7 @@ function ReachUs() {
             </div>
 
             <div className="mt-6 p-4 rounded-xl bg-brand-400/10 border border-brand-400/20 text-xs text-brand-300">
-              We solve real workflow problems - not generic solutions.
+              We solve real workflow problems -  not generic solutions.
             </div>
           </div>
 

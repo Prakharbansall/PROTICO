@@ -70,21 +70,7 @@ function Footer() {
                 </a>
               </div>
             </div>
-
-            {/* Social */}
-            <div className="flex gap-3">
-              {[Linkedin, Twitter, Github].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-8 h-8 flex items-center justify-center rounded-md bg-gray-800 hover:bg-primary-600 transition"
-                >
-                  <Icon className="w-4 h-4 text-gray-300" />
-                </a>
-              ))}
-            </div>
-          </div>
-
+           
           {/* Links */}
           <div>
             <h4 className="font-display font-semibold text-white mb-4 text-base">

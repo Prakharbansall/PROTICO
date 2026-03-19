@@ -4,9 +4,6 @@ import {
   Mail,
   MapPin,
   ArrowUpRight,
-  Linkedin,
-  Twitter,
-  Github,
 } from "lucide-react";
 
 function Footer() {

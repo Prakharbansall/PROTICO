@@ -8,67 +8,63 @@ function Hero({
   description,
   primaryCta,
   secondaryCta,
-  children
+  children,
+  backgroundImage,
 }) {
   return (
-    <section className="relative pt-20 pb-12 lg:pt-24 lg:pb-16 overflow-hidden min-h-[70vh] flex items-center">
-
-      {/* Background */}
-      <div className="absolute inset-0 gradient-bg" />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-primary-200/20 to-transparent rounded-full blur-3xl -translate-y-1/3 translate-x-1/3" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-accent-200/20 to-transparent rounded-full blur-3xl translate-y-1/3 -translate-x-1/3" />
-
-      {/* Grid */}
-<div className="absolute inset-0 bg-[linear-gradient(to_right,#8886_1px,transparent_1px),linear-gradient(to_bottom,#8886_1px,transparent_1px)] bg-[size:16px_26px] opacity-40" />
-
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      className="relative pt-24 pb-20 overflow-hidden min-h-[80vh] flex items-center"
+      style={
+        backgroundImage
+          ? {
+              backgroundImage: `linear-gradient(rgba(7, 12, 28, 0.88), rgba(8, 14, 34, 0.6)), url(${backgroundImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center center',
+            }
+          : {}
+      }
+    >
+      <div className="absolute inset-0 bg-surface-900/80 hero-overlay" />
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="max-w-3xl mx-auto text-center">
-
-          {/* Badge */}
           {badge && (
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-100/70 border border-primary-200/50 text-primary-700 text-xs font-medium mb-5">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-300/30 bg-brand-300/20 text-brand-100 text-xs font-semibold mb-4">
               <Sparkles className="w-3.5 h-3.5" />
               {badge}
             </div>
           )}
 
-          {/* Subtitle */}
           {subtitle && (
-            <p className="text-primary-600 font-medium text-base mb-2">
+            <p className="text-brand-200 font-semibold text-sm uppercase tracking-[0.18em] mb-3">
               {subtitle}
             </p>
           )}
 
-          {/* Title */}
-          <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4 leading-tight">
+          <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-5 leading-tight tracking-tight">
             {title}
           </h1>
 
-          {/* Description */}
           {description && (
-            <p className="text-base text-slate-300 mb-6 max-w-xl mx-auto leading-relaxed">
+            <p className="text-surface-200 text-base sm:text-lg leading-relaxed mb-8">
               {description}
             </p>
           )}
 
-          {/* CTA */}
           {(primaryCta || secondaryCta) && (
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              
               {primaryCta && (
                 <Link
                   to={primaryCta.to}
-                  className="btn-primary flex items-center gap-2 group"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-500 text-white font-semibold shadow-lg shadow-brand-500/30 hover:bg-brand-400 transition"
                 >
                   {primaryCta.label}
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               )}
-
               {secondaryCta && (
                 <Link
                   to={secondaryCta.to}
-                  className="btn-secondary"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-brand-300/50 text-brand-100 hover:bg-surface-700 transition"
                 >
                   {secondaryCta.label}
                 </Link>
@@ -76,9 +72,7 @@ function Hero({
             </div>
           )}
 
-          {/* Children */}
           {children && <div className="mt-6">{children}</div>}
-
         </div>
       </div>
     </section>

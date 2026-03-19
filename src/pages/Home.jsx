@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
 import Section from '../components/Section'
-import Card from '../components/Card'
 import {
   ArrowRight,
   Layers,
@@ -9,216 +8,183 @@ import {
   Zap,
   Database,
   Cloud,
-  GitBranch,
   Lightbulb,
   Target,
   Rocket
 } from 'lucide-react'
 
 function Home() {
-  const buildingItems = [
+
+  const outcomes = [
     {
       icon: Layers,
-      title: 'Integrated Systems Architecture',
-      description:
-        'We are designing frameworks that will connect disparate business systems into cohesive, manageable platforms.'
+      title: '40% faster operations',
+      description: 'Teams save hours daily with connected workflows.',
     },
     {
-      icon: Cloud,
-      title: 'Cloud-Native Solutions',
-      description:
-        'Our approach will embrace modern cloud infrastructure, enabling scalable and resilient applications.'
+      icon: Database,
+      title: 'Clear decision data',
+      description: 'All insights in one place → faster decisions.',
     },
     {
       icon: Shield,
-      title: 'Security-First Development',
-      description:
-        'Every solution we build will incorporate security considerations from the ground up, not as an afterthought.'
-    }
+      title: 'Low-risk releases',
+      description: 'Ship in small safe increments with confidence.',
+    },
   ]
 
-  const challenges = [
+  const practiceAreas = [
     {
-      icon: Database,
-      title: 'Data Fragmentation',
-      description:
-        'Businesses struggle with information scattered across multiple systems, making insights difficult to extract.'
-    },
-    {
-      icon: GitBranch,
-      title: 'Integration Complexity',
-      description:
-        'Connecting legacy systems with modern tools creates technical debt and operational friction.'
+      icon: Cloud,
+      title: 'Systems Integration',
+      description: 'Unify tools into one workflow.',
     },
     {
       icon: Zap,
-      title: 'Scaling Constraints',
-      description:
-        'Growth is often limited by infrastructure that cannot adapt to changing demands.'
-    }
-  ]
-
-  const products = [
-    {
-      name: 'Protico Connect',
-      icon: Layers,
-      description:
-        'An integration platform being developed to unify business applications through intelligent APIs and automated workflows.',
-      status: 'In Development'
+      title: 'Automation',
+      description: 'Remove repetitive manual work.',
     },
     {
-      name: 'Protico Insight',
       icon: Lightbulb,
-      description:
-        'A business intelligence layer that will transform raw data into actionable insights through intuitive dashboards.',
-      status: 'In Development'
+      title: 'Reporting',
+      description: 'Dashboards teams actually use.',
     },
-    {
-      name: 'Protico Shield',
-      icon: Shield,
-      description:
-        'A security monitoring framework designed to provide visibility into system health and potential vulnerabilities.',
-      status: 'In Development'
-    }
   ]
 
   return (
     <>
-      {/* Hero */}
+      {/* HERO */}
       <Hero
-        badge="Building the Future of IT"
-        title={
-          <>
-            Technology should{' '}
-            <span className="gradient-text">simplify</span>, not complicate
-          </>
-        }
-        description="Too many businesses are held back by fragmented systems, complex integrations, and technology that creates more problems than it solves. We are building solutions designed to change that."
-        primaryCta={{ label: 'Start the Conversation', to: '/reach-us' }}
-        secondaryCta={{ label: 'Our Approach', to: '/solutions' }}
+        badge="Operational software"
+        title="Build systems your team actually uses"
+        subtitle="Practical systems for growing businesses"
+        description="We design workflows, integrations, and dashboards that fit your real operations."
+        primaryCta={{ label: 'Book a call', to: '/reach-us' }}
+        secondaryCta={{ label: 'View services', to: '/solutions' }}
+        backgroundImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
       />
 
-      {/* What We Are Building */}
+      {/* PRACTICE AREAS */}
       <Section
-        subtitle="Our Focus"
-        title="What We Are Building"
-        description="We are creating IT solutions that will address real business challenges-thoughtfully designed, carefully implemented."
+        subtitle="What we do"
+        title="Technology that improves daily work"
       >
-        <div className="grid md:grid-cols-3 gap-8">
-          {buildingItems.map((item, index) => (
-            <Card
-              key={index}
-              icon={item.icon}
-              title={item.title}
-              description={item.description}
-              variant="gradient"
-            />
-          ))}
-        </div>
-      </Section>
-
-      {/* Challenges */}
-      <Section
-        className="bg-slate-900"
-        subtitle="The Challenge"
-        title="Why This Work Matters"
-        description="The technology landscape presents genuine obstacles that businesses face every day."
-      >
-        <div className="grid md:grid-cols-3 gap-8">
-          {challenges.map((item, index) => (
-            <Card
-              key={index}
-              icon={item.icon}
-              title={item.title}
-              description={item.description}
-            />
-          ))}
-        </div>
-      </Section>
-
-      {/* Products */}
-      <Section
-        subtitle="What's Coming"
-        title="Products In Development"
-        description="We are actively building tools that will help businesses operate more effectively."
-      >
-        <div className="grid md:grid-cols-3 gap-8">
-          {products.map((product, index) => (
+        <div className="grid md:grid-cols-3 gap-6">
+          {practiceAreas.map((item, i) => (
             <div
-              key={index}
-              className="relative p-8 rounded-2xl bg-slate-800 border border-slate-700 hover:border-primary-200 hover:shadow-xl hover:shadow-primary-100/30 transition-all duration-300 group"
+              key={i}
+              className="group relative p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl hover:-translate-y-1 hover:scale-[1.02] transition-all"
             >
-              <div className="absolute top-6 right-6">
-                <span className="px-3 py-1 text-xs font-medium bg-amber-100 text-amber-700 rounded-full">
-                  {product.status}
-                </span>
+              {/* Glow */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-brand-400/10 blur-2xl transition" />
+
+              <div className="relative">
+                <div className="mb-4 w-12 h-12 rounded-xl bg-brand-400/20 flex items-center justify-center">
+                  <item.icon className="w-6 h-6 text-brand-400" />
+                </div>
+
+                <h3 className="text-white text-lg font-semibold mb-2">
+                  {item.title}
+                </h3>
+
+                <p className="text-surface-300 text-sm">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* PROCESS */}
+      <Section subtitle="Process" title="Simple execution, real results">
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            {
+              title: 'Discover',
+              body: 'Understand workflows and identify real problems.',
+              icon: Rocket,
+            },
+            {
+              title: 'Build',
+              body: 'Deliver usable solutions in small increments.',
+              icon: Target,
+            },
+            {
+              title: 'Optimize',
+              body: 'Improve continuously as your team grows.',
+              icon: Zap,
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="rounded-3xl p-6 bg-surface-900 border border-surface-700 hover:border-brand-400 hover:scale-[1.03] transition-all"
+            >
+              <div className="mb-4 w-12 h-12 rounded-xl bg-brand-400/20 flex items-center justify-center">
+                <item.icon className="w-6 h-6 text-brand-400" />
               </div>
 
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center mb-6 shadow-lg shadow-primary-500/20 group-hover:scale-110 transition-transform">
-                <product.icon className="w-7 h-7 text-white" />
-              </div>
-
-              <h3 className="font-display font-semibold text-xl text-white mb-3">
-                {product.name}
+              <h3 className="text-white text-lg font-semibold mb-2">
+                {item.title}
               </h3>
 
-              <p className="text-slate-300 leading-relaxed">
-                {product.description}
+              <p className="text-surface-300 text-sm">
+                {item.body}
               </p>
             </div>
           ))}
         </div>
       </Section>
 
-      {/* Perspective */}
-      <Section dark subtitle="Our Perspective" title="Building with Purpose">
-        <div className="max-w-4xl mx-auto">
-          <div className="glass-card bg-slate-800/5 border-white/10 p-10 rounded-3xl">
-            <blockquote className="text-xl lg:text-2xl text-gray-300 leading-relaxed mb-8 text-center">
-              "Technology evolves rapidly, but the fundamental need remains constant:
-              businesses need systems that work together, not against each other.
-              We believe the next generation of IT solutions will be defined not by
-              how many features they offer, but by how seamlessly they integrate
-              into the fabric of daily operations."
-            </blockquote>
+      {/* OUTCOMES */}
+      <Section
+        subtitle="Outcomes"
+        title="Measured improvements"
+        className="bg-surface-900"
+      >
+        <div className="grid md:grid-cols-3 gap-6">
+          {outcomes.map((item, i) => (
+            <div
+              key={i}
+              className="rounded-3xl p-6 bg-white/5 border border-white/10 backdrop-blur-xl hover:-translate-y-1 transition"
+            >
+              <div className="mb-4 w-12 h-12 rounded-xl bg-brand-400/20 flex items-center justify-center">
+                <item.icon className="w-6 h-6 text-brand-400" />
+              </div>
 
-            <div className="flex items-center justify-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-400 to-accent-400 flex items-center justify-center">
-                <Target className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <p className="font-semibold text-white">The Protico Vision</p>
-                <p className="text-sm text-gray-400">
-                  Guiding our development approach
-                </p>
-              </div>
+              <h3 className="text-white text-xl font-semibold mb-2">
+                {item.title}
+              </h3>
+
+              <p className="text-surface-300 text-sm">
+                {item.description}
+              </p>
             </div>
-          </div>
+          ))}
         </div>
       </Section>
 
       {/* CTA */}
-      <Section className="bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800">
-        <div className="text-center">
-          <Rocket className="w-16 h-16 text-primary-200 mx-auto mb-6" />
+      <Section className="relative text-center overflow-hidden">
 
-          <h2 className="font-display font-bold text-3xl sm:text-4xl text-white mb-4">
-            Let's Build Something Meaningful
-          </h2>
+        {/* Glow */}
+        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-brand-400/20 blur-3xl pointer-events-none" />
 
-          <p className="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">
-            We're at the beginning of our journey and eager to connect with businesses
-            facing real technology challenges.
-          </p>
+        <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
+          Ready to improve your operations?
+        </h2>
 
-          <Link
-            to="/reach-us"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-slate-800 text-primary-700 font-semibold rounded-xl hover:bg-primary-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 group"
-          >
-            Start the Conversation
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </Link>
-        </div>
+        <p className="text-surface-300 max-w-xl mx-auto mb-8">
+          Let’s design a system tailored to your team - simple, fast, effective.
+        </p>
+
+        <Link
+          to="/reach-us"
+          className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-gradient-to-r from-brand-400 to-brand-600 text-white font-semibold shadow-lg hover:scale-[1.05] active:scale-[0.98] transition-all"
+        >
+          Schedule a call
+          <ArrowRight className="w-4 h-4" />
+        </Link>
       </Section>
     </>
   )

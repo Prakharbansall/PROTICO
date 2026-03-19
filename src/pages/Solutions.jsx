@@ -6,120 +6,114 @@ import {
   Puzzle,
   Scale,
   Database,
-  AlertTriangle,
+  Lock,
   Layers,
   Workflow,
-  BarChart3,
-  Lock
+  BarChart3
 } from 'lucide-react'
 
 function Solutions() {
-  const challenges = [
+
+  const problems = [
     {
       icon: Puzzle,
-      title: 'Fragmented Systems',
-      problem:
-        'Different departments using disconnected tools create information silos and manual workarounds.',
-      approach:
-        'We are designing integration frameworks that will create seamless connections between existing systems, allowing data to flow naturally across your organization.'
+      title: 'Disconnected data',
+      text: 'Teams work in silos → decisions are incomplete.'
     },
     {
       icon: Scale,
-      title: 'Compliance Complexity',
-      problem:
-        'Regulatory requirements change frequently, and maintaining compliance across systems demands constant attention.',
-      approach:
-        'Our solutions will include built-in compliance monitoring capabilities, designed to help businesses stay ahead of regulatory requirements rather than reacting to them.'
+      title: 'Manual workflows',
+      text: 'Repeated tasks slow teams and increase errors.'
     },
     {
       icon: Database,
-      title: 'Data Accessibility',
-      problem:
-        'Critical business data trapped in legacy systems or scattered across platforms makes informed decision-making difficult.',
-      approach:
-        'We are building tools that will surface relevant information where and when it is needed, transforming raw data into accessible insights.'
-    },
-    {
-      icon: AlertTriangle,
-      title: 'Security Concerns',
-      problem:
-        'As systems multiply, so do potential vulnerabilities-and the complexity of monitoring them all.',
-      approach:
-        'Security will be woven into every solution from the start, with visibility tools designed to help identify and address concerns proactively.'
-    }
-  ]
-
-  const solutionAreas = [
-    {
-      icon: Layers,
-      title: 'System Integration',
-      description:
-        'Connecting your existing tools and platforms into a cohesive ecosystem that works together rather than in isolation.'
-    },
-    {
-      icon: Workflow,
-      title: 'Process Automation',
-      description:
-        'Identifying repetitive workflows and building intelligent automation that will free your team to focus on higher-value work.'
-    },
-    {
-      icon: BarChart3,
-      title: 'Business Intelligence',
-      description:
-        'Creating dashboards and reporting tools that will make your data accessible and actionable for decision-makers.'
+      title: 'Unclear metrics',
+      text: 'Reports take too long → no real-time visibility.'
     },
     {
       icon: Lock,
-      title: 'Security Architecture',
-      description:
-        'Designing security frameworks that will protect your systems while maintaining the usability your team needs.'
+      title: 'System complexity',
+      text: 'Access, updates, and control become difficult.'
+    }
+  ]
+
+  const solutions = [
+    {
+      icon: Layers,
+      title: 'System integration',
+      description: 'Unify tools into one connected workflow.'
+    },
+    {
+      icon: Workflow,
+      title: 'Workflow automation',
+      description: 'Reduce manual work and speed execution.'
+    },
+    {
+      icon: BarChart3,
+      title: 'Operational visibility',
+      description: 'Dashboards focused on action, not noise.'
+    },
+    {
+      icon: Lock,
+      title: 'Practical security',
+      description: 'Secure systems without blocking teams.'
+    }
+  ]
+
+  const process = [
+    {
+      step: '01',
+      title: 'Understand',
+      description: 'Map real workflows and bottlenecks.'
+    },
+    {
+      step: '02',
+      title: 'Build',
+      description: 'Deliver a working solution quickly.'
+    },
+    {
+      step: '03',
+      title: 'Improve',
+      description: 'Refine continuously with your team.'
     }
   ]
 
   return (
     <>
+      {/* HERO */}
       <Hero
-        badge="Our Approach"
-        title="Solving real problems, not creating new ones"
-        description="We're focused on understanding the challenges businesses actually face-and building solutions designed specifically to address them."
+        badge="Solutions"
+        title="Fix operational bottlenecks with practical systems"
+        description="We replace manual coordination, scattered tools, and unclear metrics with simple, connected workflows."
+        primaryCta={{ label: 'Talk to us', to: '/reach-us' }}
+        backgroundImage="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
       />
 
-      {/* Challenges */}
+      {/* PROBLEMS */}
       <Section
-        subtitle="Understanding Challenges"
-        title="The Problems We're Addressing"
-        description="Before building solutions, we study the obstacles that genuinely hold businesses back."
+        subtitle="Problems"
+        title="What slows teams down"
       >
-        <div className="space-y-8">
-          {challenges.map((item, index) => (
+        <div className="grid md:grid-cols-2 gap-6">
+          {problems.map((item, i) => (
             <div
-              key={index}
-              className="grid lg:grid-cols-2 gap-8 p-8 rounded-3xl bg-slate-900 hover:bg-slate-800 hover:shadow-xl hover:shadow-gray-200/50 border border-transparent hover:border-slate-700 transition-all duration-300"
+              key={i}
+              className="group relative p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl hover:-translate-y-1 transition-all"
             >
-              <div>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center">
-                    <item.icon className="w-6 h-6 text-red-600" />
-                  </div>
-                  <h3 className="font-display font-semibold text-xl text-white">
-                    {item.title}
-                  </h3>
+              {/* Glow */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-red-400/10 blur-2xl transition" />
+
+              <div className="relative">
+                <div className="mb-4 w-12 h-12 rounded-xl bg-red-400/20 flex items-center justify-center">
+                  <item.icon className="w-6 h-6 text-red-400" />
                 </div>
 
-                <p className="text-slate-300 leading-relaxed">
-                  <span className="font-medium text-slate-200">
-                    The Challenge:{' '}
-                  </span>
-                  {item.problem}
-                </p>
-              </div>
+                <h3 className="text-white font-semibold mb-2">
+                  {item.title}
+                </h3>
 
-              <div className="lg:border-l lg:border-gray-200 lg:pl-8">
-                <p className="text-slate-300 leading-relaxed">
-                  <span className="font-medium text-primary-700">
-                    Our Approach:{' '}
-                  </span>
-                  {item.approach}
+                <p className="text-surface-300 text-sm">
+                  {item.text}
                 </p>
               </div>
             </div>
@@ -127,113 +121,85 @@ function Solutions() {
         </div>
       </Section>
 
-      {/* Solution Areas */}
+      {/* SOLUTIONS */}
       <Section
-        className="bg-gradient-to-br from-gray-900 via-gray-900 to-primary-950"
-        subtitle="Focus Areas"
-        title="Where We're Concentrating Our Efforts"
-        description="We are developing expertise in areas where we believe we can make the most meaningful impact."
-        dark
+        subtitle="Solutions"
+        title="How we improve your operations"
+        className="bg-surface-900"
       >
-        <div className="grid md:grid-cols-2 gap-8">
-          {solutionAreas.map((area, index) => (
+        <div className="grid md:grid-cols-2 gap-6">
+          {solutions.map((item, i) => (
             <div
-              key={index}
-              className="p-8 rounded-2xl bg-slate-800/5 border border-white/10 hover:bg-slate-800/10 hover:border-white/20 transition-all duration-300 group"
+              key={i}
+              className="group relative p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl hover:-translate-y-1 hover:scale-[1.02] transition-all"
             >
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
-                <area.icon className="w-7 h-7 text-white" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-brand-400/10 blur-2xl transition" />
+
+              <div className="relative">
+                <div className="mb-4 w-12 h-12 rounded-xl bg-brand-400/20 flex items-center justify-center">
+                  <item.icon className="w-6 h-6 text-brand-400" />
+                </div>
+
+                <h3 className="text-white font-semibold mb-2">
+                  {item.title}
+                </h3>
+
+                <p className="text-surface-300 text-sm">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* PROCESS */}
+      <Section
+        subtitle="Process"
+        title="Simple execution"
+      >
+        <div className="grid md:grid-cols-3 gap-6">
+          {process.map((item, i) => (
+            <div
+              key={i}
+              className="rounded-3xl p-6 bg-surface-900 border border-surface-700 hover:border-brand-400 hover:scale-[1.03] transition"
+            >
+              <div className="text-brand-400 font-bold mb-2">
+                {item.step}
               </div>
 
-              <h3 className="font-display font-semibold text-xl text-white mb-3">
-                {area.title}
+              <h3 className="text-white font-semibold mb-2">
+                {item.title}
               </h3>
 
-              <p className="text-gray-400 leading-relaxed">
-                {area.description}
+              <p className="text-surface-300 text-sm">
+                {item.description}
               </p>
             </div>
           ))}
         </div>
       </Section>
 
-      {/* Process */}
-      <Section
-        subtitle="How We Work"
-        title="A Process Built on Understanding"
-        description="We believe good solutions start with genuine understanding of the problem."
-      >
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary-200 via-primary-400 to-primary-200 hidden md:block" />
-
-            <div className="space-y-12">
-              {[
-                {
-                  step: '01',
-                  title: 'Listen First',
-                  description:
-                    'We will begin every engagement by understanding your specific challenges, workflows, and goals-not by pitching pre-packaged solutions.'
-                },
-                {
-                  step: '02',
-                  title: 'Design Thoughtfully',
-                  description:
-                    'Based on what we learn, we will design solutions tailored to your actual needs.'
-                },
-                {
-                  step: '03',
-                  title: 'Build Incrementally',
-                  description:
-                    'We will focus on delivering value in manageable phases with room for feedback.'
-                },
-                {
-                  step: '04',
-                  title: 'Support Genuinely',
-                  description:
-                    'We remain invested in ensuring solutions continue to serve your evolving needs.'
-                }
-              ].map((item, index) => (
-                <div key={index} className="relative flex gap-8 items-start">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-lg">
-                    <span className="font-display font-bold text-white">
-                      {item.step}
-                    </span>
-                  </div>
-
-                  <div className="pt-2">
-                    <h3 className="font-display font-semibold text-xl text-white mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-slate-300 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </Section>
-
       {/* CTA */}
-      <Section className="bg-primary-700">
-        <div className="text-center">
-          <h2 className="font-display font-bold text-3xl text-white mb-4">
-            Have a Challenge Worth Solving?
-          </h2>
-          <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-            We're eager to learn about the technology problems your business faces.
-          </p>
+      <Section className="relative text-center overflow-hidden">
 
-          <Link
-            to="/reach-us"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-slate-800 text-primary-700 font-semibold rounded-xl hover:bg-primary-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 group"
-          >
-            Start the Conversation
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </Link>
-        </div>
+        {/* Glow */}
+        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-brand-400/20 blur-3xl pointer-events-none" />
+
+        <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
+          Ready to simplify your operations?
+        </h2>
+
+        <p className="text-surface-300 max-w-xl mx-auto mb-8">
+          If your team is stuck with manual work or disconnected tools, we’ll help you fix it.
+        </p>
+
+        <Link
+          to="/reach-us"
+          className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-gradient-to-r from-brand-400 to-brand-600 text-white font-semibold shadow-lg hover:scale-[1.05] active:scale-[0.98] transition-all"
+        >
+          Book a short call
+        </Link>
       </Section>
     </>
   )

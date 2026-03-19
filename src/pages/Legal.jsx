@@ -15,7 +15,7 @@ function Legal() {
         title="Terms of Use"
         description="By using this site, you agree to the following terms."
       >
-        <div className="max-w-4xl mx-auto space-y-4 text-slate-200">
+        <div className="max-w-4xl mx-auto space-y-4 text-surface-200">
           <p className="leading-relaxed">
             Protico Technology is an early-stage company. The content on this site is for informational purposes only and does not constitute an offer, contract, or professional advice.
           </p>
@@ -29,12 +29,12 @@ function Legal() {
       </Section>
 
       <Section
-        className="bg-slate-900"
+        className="bg-surface-900"
         subtitle="Privacy"
         title="Privacy Policy"
         description="How we treat your information."
       >
-        <div className="max-w-4xl mx-auto space-y-4 text-slate-200">
+        <div className="max-w-4xl mx-auto space-y-4 text-surface-200">
           <p className="leading-relaxed">
             We only collect what is necessary to respond to inquiries (such as email and message content in contact forms). We do not sell or share personal information with third parties for marketing purposes.
           </p>
@@ -52,18 +52,18 @@ function Legal() {
         title="Need Clarification?"
         description="Reach out if you have questions about legal terms or private information."
       >
-        <div className="rounded-2xl p-8 bg-slate-800 border border-slate-700 shadow-sm">
-          <p className="text-slate-300 leading-relaxed mb-4">
+        <div className="rounded-2xl p-8 bg-surface-800 border border-surface-700 shadow-sm">
+          <p className="text-surface-300 leading-relaxed mb-4">
             Email us at{' '}
             <a
               href="mailto:contact@proticotechnology.com"
-              className="text-primary-700 hover:text-primary-800"
+              className="text-brand-500 hover:text-brand-800"
             >
               contact@proticotechnology.com
             </a>{' '}
             and we will respond with clarification.
           </p>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-surface-400">
             This legal content is provided for informational purposes only and is not a substitute for legal advice.
           </p>
         </div>

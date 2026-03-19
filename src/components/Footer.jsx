@@ -5,9 +5,23 @@ import {
   MapPin,
   ArrowUpRight,
 } from "lucide-react";
+import { useState } from "react";
+
+
 
 function Footer() {
+
   const currentYear = new Date().getFullYear();
+
+const [joined, setJoined] = useState(false);
+
+const handleJoin = () => {
+  setJoined(true);
+
+  setTimeout(() => {
+    setJoined(false);
+  }, 2000); 
+};
 
   const quickLinks = [
     { name: "Home", path: "/" },
@@ -67,7 +81,8 @@ function Footer() {
                 </a>
               </div>
             </div>
-           
+          </div> {/* ✅ FIXED: closed lg:col-span-2 */}
+
           {/* Links */}
           <div>
             <h4 className="font-display font-semibold text-white mb-4 text-base">
@@ -105,9 +120,13 @@ function Footer() {
                 placeholder="Your email"
                 className="bg-transparent px-3 py-2 text-xs text-white outline-none w-full placeholder-gray-500"
               />
-              <button className="bg-primary-600 px-3 py-2 text-xs font-medium hover:bg-primary-700 transition">
-                Join
-              </button>
+
+<button
+  onClick={handleJoin}
+  className="bg-primary-600 px-3 py-2 text-xs font-medium hover:bg-primary-700 transition"
+>
+  {joined ? "Joined" : "Join"}
+</button>
             </div>
 
             <p className="text-[10px] text-slate-300 mt-2">

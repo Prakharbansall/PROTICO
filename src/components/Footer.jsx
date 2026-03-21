@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import {
   Hexagon,
   Mail,
@@ -30,6 +31,7 @@ const handleJoin = () => {
     { name: "Perspectives", path: "/perspectives" },
     { name: "Reach Us", path: "/reach-us" },
   ];
+
 
   return (
     <footer className="relative bg-surface-950 text-surface-200 border-t border-white/10 overflow-hidden">

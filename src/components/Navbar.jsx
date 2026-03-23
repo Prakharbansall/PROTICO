@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Shield, ChevronRight } from "lucide-react";
+import logo from "../asset/logo.png";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,7 +38,7 @@ function Navbar() {
 
           {/* BRAND LOGO */}
           <Link to="/" className="group flex items-center ">
-          <img src="./src/asset/logo.png" className="h-20 w-30" />
+          <img src={logo} className="h-20 w-30" />
           {/* <span className="text-yellow-400 font-semibold tracking-wide">
   PROTICO
 </span> */}

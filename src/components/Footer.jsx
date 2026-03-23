@@ -8,6 +8,7 @@ import {
   Globe,
   ExternalLink
 } from "lucide-react";
+import logo from "../asset/logo.png";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -37,7 +38,7 @@ function Footer() {
           {/* 1. BRAND IDENTITY */}
           <div className="space-y-6">
             <h2 className="text-xl font-black tracking-tighter text-[#D4AF37]">
-              <img src="./src/asset/logo.png" className="h-20 w-30"></img>
+              <img src={logo} className="h-20 w-30"></img>
               PROTICO<span className="text-white/50"> TECHNOLOGY PRIVATE LIMITED</span>
             </h2>
           </div>

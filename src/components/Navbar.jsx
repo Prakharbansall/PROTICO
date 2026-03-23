@@ -1,84 +1,123 @@
-import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Hexagon } from 'lucide-react'
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Shield, ChevronRight } from "lucide-react";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const location = useLocation()
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
-    { name: 'Overview', path: '/' },
-    { name: 'About', path: '/company' },
-    { name: 'Services', path: '/solutions' },
-    { name: 'Insights', path: '/perspectives' },
-    { name: 'Contact', path: '/reach-us' },
-  ]
+    { name: "Global Home", path: "/" },
+    { name: "Architecture", path: "/solutions" },
+    { name: "Perspectives", path: "/perspectives" },
+    { name: "About", path: "/Company" },
+  ];
 
-  const isActive = (path) => location.pathname === path
+  const isActive = (path) => location.pathname === path;
+  const fontStyle = { fontFamily: "'Inter', sans-serif" };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-surface-900/95 backdrop-blur-xl border-b border-surface-700 text-surface-100 shadow-xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="relative">
-              <Hexagon className="w-10 h-10 text-brand-400 fill-brand-700/30 transition-transform group-hover:scale-110" />
-              <span className="absolute inset-0 flex items-center justify-center text-brand-200 font-bold text-xs">
-                P
-              </span>
-            </div>
-            <div className="flex flex-col leading-tight">
-              <span className="font-display font-bold text-lg text-white">PROTICO</span>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-surface-400">Technology</span>
-            </div>
+    <nav 
+      style={fontStyle}
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration200 ${
+        scrolled 
+          ? "bg-[#3E103F]/95 backdrop-blur-2xl py-3 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-b border-white/5" 
+          : "bg-transparent py-7"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-3">
+        <div className="flex items-center justify-between">
+
+          {/* BRAND LOGO */}
+          <Link to="/" className="group flex items-center ">
+          <img src="./src/asset/logo.png" className="h-20 w-30" />
+          {/* <span className="text-yellow-400 font-semibold tracking-wide">
+  PROTICO
+</span> */}
           </Link>
 
-          <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
-                  isActive(link.path)
-                    ? 'bg-brand-500/20 text-brand-200'
-                    : 'text-surface-200 hover:text-white hover:bg-surface-700/80'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+          {/* DESKTOP NAVIGATION */}
+          <div className="hidden md:flex items-center gap-12">
+            <div className="flex items-center gap-10">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`relative text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:text-[#D4AF37] group ${
+                    isActive(link.path) ? "text-[#D4AF37]" : "text-white/80"
+                  }`}
+                >
+                  {link.name}
+                  <span className={`absolute -bottom-1 left-0 h-[2px] bg-[#D4AF37] transition-all duration-500 ${
+                    isActive(link.path) ? "w-full" : "w-0 group-hover:w-full"
+                  }`} />
+                </Link>
+              ))}
+            </div>
+
+            <Link
+              to="/reach-us"
+              className={`flex items-center gap-3 px-8 py-3 rounded-full text-[11px] font-black uppercase tracking-widest transition-all duration-500 hover:-translate-y-1 shadow-xl bg-[#D4AF37] text-[#3E103F] hover:bg-white`}
+            >
+              Contact Hub
+              <ChevronRight className="w-4 h-4" />
+            </Link>
           </div>
 
+          {/* MOBILE TOGGLE - Fixed Color Visibility */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-surface-200 hover:bg-surface-700 transition-colors"
-            aria-label="Toggle menu"
+            className="md:hidden p-3 rounded-xl transition-all z-[110] text-white hover:bg-white/10"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
           </button>
         </div>
       </div>
 
-      <div className={`md:hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-        <div className="px-4 py-4 bg-surface-900 border-t border-surface-700 space-y-1">
-          {navLinks.map((link) => (
+      {/* MOBILE DRAWER - Fixed Background & Visibility */}
+      <div className={`fixed inset-0 bg-[#3E103F] z-[105] transition-all duration-700 ease-in-out md:hidden ${
+        isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
+      }`}>
+        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+        
+        <div className="flex flex-col h-full pt-40 px-12 space-y-10 relative z-10">
+          {navLinks.map((link, i) => (
             <Link
               key={link.path}
               to={link.path}
               onClick={() => setIsOpen(false)}
-              className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-                isActive(link.path)
-                  ? 'bg-brand-500/20 text-brand-200'
-                  : 'text-surface-200 hover:text-white hover:bg-surface-700/70'
+              className={`text-4xl font-black uppercase tracking-tighter transition-all duration-500 transform ${
+                isOpen ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
+              } ${
+                isActive(link.path) ? "text-[#D4AF37]" : "text-white"
               }`}
+              style={{ transitionDelay: `${i * 100}ms` }}
             >
               {link.name}
             </Link>
           ))}
+          
+          <div className="pt-12 border-t border-white/10">
+            <Link
+              to="/reach-us"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center justify-between w-full p-6 bg-[#D4AF37] text-[#3E103F] font-black uppercase tracking-widest rounded-2xl shadow-2xl"
+            >
+              Initiate Contact
+              <ChevronRight />
+            </Link>
+          </div>
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

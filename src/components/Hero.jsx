@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import React from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 
 function Hero({
   badge,
@@ -9,74 +10,120 @@ function Hero({
   primaryCta,
   secondaryCta,
   children,
-  backgroundImage,
+  bgImage = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000"
 }) {
+  // Common style for that 'Heavy' Enterprise Font
+  const fontStyle = { fontFamily: "'Inter', sans-serif" };
+
   return (
-    <section
-      className="relative pt-24 pb-20 overflow-hidden min-h-[80vh] flex items-center"
-      style={
-        backgroundImage
-          ? {
-              backgroundImage: `linear-gradient(rgba(7, 12, 28, 0.88), rgba(8, 14, 34, 0.6)), url(${backgroundImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center center',
-            }
-          : {}
-      }
+    <section 
+      style={fontStyle}
+      className="relative pt-32 pb-24 overflow-hidden min-h-[90vh] flex items-center bg-[#3E103F]"
     >
-      <div className="absolute inset-0 bg-surface-900/80 hero-overlay" />
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          {badge && (
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-300/30 bg-brand-300/20 text-brand-100 text-xs font-semibold mb-4">
-              <Sparkles className="w-3.5 h-3.5" />
-              {badge}
-            </div>
-          )}
+      
+      {/* 1. ATMOSPHERIC BACKGROUND */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={bgImage} 
+          alt="Infrastructure" 
+          className="w-full h-full object-cover opacity-10 scale-110"
+        />
+        {/* Layered Gradients for Depth */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#3E103F] via-[#3E103F]/95 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#3E103F]/50 to-[#3E103F]" />
+        
+        {/* Gold Glow Effects */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37]/5 blur-[150px] rounded-full" />
+        <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] bg-[#D4AF37]/10 blur-[150px] rounded-full" />
+      </div>
 
-          {subtitle && (
-            <p className="text-brand-200 font-semibold text-sm uppercase tracking-[0.18em] mb-3">
-              {subtitle}
-            </p>
-          )}
+      <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
+        <div className="flex flex-col lg:flex-row items-center gap-20">
+          
+          {/* CONTENT SIDE */}
+          <div className="flex-[1.4] text-center lg:text-left">
+            
+            {/* BADGE - Clean & Minimal */}
+            {badge && (
+              <div className="inline-flex items-center gap-2 mb-10 px-5 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl transition-all hover:bg-white/10">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#D4AF37]" />
+                <span className="text-[11px] font-black uppercase tracking-[0.4em] text-white/90">
+                  {badge}
+                </span>
+              </div>
+            )}
 
-          <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-5 leading-tight tracking-tight">
-            {title}
-          </h1>
+            {/* SUBTITLE - The 'Royal' Line */}
+            {subtitle && (
+              <p className="text-[#D4AF37] font-extrabold text-xs mb-5 uppercase tracking-[0.5em] leading-none">
+                {subtitle}
+              </p>
+            )}
 
-          {description && (
-            <p className="text-surface-200 text-base sm:text-lg leading-relaxed mb-8">
-              {description}
-            </p>
-          )}
+            {/* MAIN TITLE - This is where the aesthetic lives */}
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white leading-[0.9] mb-10 tracking-[-0.05em]">
+              {title}
+            </h1>
 
-          {(primaryCta || secondaryCta) && (
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            {/* DESCRIPTION - Clean line-height */}
+            {description && (
+              <p className="text-[#E2D1F9]/70 text-lg md:text-xl max-w-xl mb-12 leading-relaxed font-light lg:mx-0 mx-auto">
+                {description}
+              </p>
+            )}
+
+            {/* CTA GROUP */}
+            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-6">
               {primaryCta && (
                 <Link
                   to={primaryCta.to}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-500 text-white font-semibold shadow-lg shadow-brand-500/30 hover:bg-brand-400 transition"
+                  className="group inline-flex items-center justify-center gap-3 px-12 py-5 rounded-full bg-[#D4AF37] text-[#3E103F] font-black text-sm uppercase tracking-widest hover:bg-white transition-all shadow-[0_20px_50px_rgba(212,175,55,0.2)] hover:-translate-y-1"
                 >
                   {primaryCta.label}
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                 </Link>
               )}
+
               {secondaryCta && (
                 <Link
                   to={secondaryCta.to}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-brand-300/50 text-brand-100 hover:bg-surface-700 transition"
+                  className="inline-flex items-center justify-center gap-3 px-12 py-5 rounded-full border border-white/20 text-white font-bold text-sm uppercase tracking-widest hover:bg-white/5 hover:border-white transition-all"
                 >
                   {secondaryCta.label}
                 </Link>
               )}
             </div>
-          )}
+          </div>
 
-          {children && <div className="mt-6">{children}</div>}
+          {/* VISUAL SIDE - The 'Glass' Card */}
+          <div className="flex-1 w-full flex justify-center lg:justify-end">
+            {children ? (
+              <div className="relative group p-4 rounded-[4rem] bg-gradient-to-tr from-white/10 to-transparent border border-white/10 backdrop-blur-md shadow-2xl transition-transform duration-700 hover:scale-[1.02]">
+                <div className="rounded-[3rem] overflow-hidden shadow-inner">
+                  {children}
+                </div>
+                {/* Decorative Elements */}
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#D4AF37]/20 blur-3xl rounded-full" />
+              </div>
+            ) : (
+              /* High-End Institutional Graphic */
+              <div className="relative w-full max-w-md aspect-square flex items-center justify-center">
+                <div className="absolute inset-0 border border-white/5 rounded-full animate-[spin_30s_linear_infinite]" />
+                <div className="absolute inset-12 border border-[#D4AF37]/10 rounded-full animate-[spin_20s_linear_infinite_reverse]" />
+                <div className="absolute inset-24 border border-white/10 rounded-full" />
+                <div className="text-white/[0.03] font-black text-9xl tracking-tighter pointer-events-none select-none">
+                  Protico
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
+
+      {/* REFINED BOTTOM TRANSITION */}
+      <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-[#FAF9FB] via-[#FAF9FB]/40 to-transparent z-10" />
     </section>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

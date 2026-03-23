@@ -1,207 +1,183 @@
 import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
 import Section from '../components/Section'
+import Card from '../components/Card'
 import {
-  ArrowRight,
   Puzzle,
-  Scale,
-  Database,
-  Lock,
+  Lightbulb,
   Layers,
   Workflow,
-  BarChart3
+  BarChart3,
+  ShieldCheck,
+  Globe,
+  Database,
+  Cpu,
+  ArrowRight
 } from 'lucide-react'
 
 function Solutions() {
 
-  const problems = [
-    {
-      icon: Puzzle,
-      title: 'Disconnected data',
-      text: 'Teams work in silos → decisions are incomplete.'
-    },
-    {
-      icon: Scale,
-      title: 'Manual workflows',
-      text: 'Repeated tasks slow teams and increase errors.'
-    },
+  const infrastructure = [
     {
       icon: Database,
-      title: 'Unclear metrics',
-      text: 'Reports take too long → no real-time visibility.'
+      title: 'Architectural Analysis',
+      text: 'Identifying structural inefficiencies within legacy digital workflows and systems.'
     },
     {
-      icon: Lock,
-      title: 'System complexity',
-      text: 'Access, updates, and control become difficult.'
+      icon: ShieldCheck,
+      title: 'Vulnerability Testing',
+      text: 'Rigorous vetting of system protocols to ensure enterprise-grade security standards.'
     }
   ]
 
-  const solutions = [
+  const verticals = [
     {
       icon: Layers,
-      title: 'System integration',
-      description: 'Unify tools into one connected workflow.'
+      title: 'Enterprise Web Systems',
+      description: 'Engineering robust, high-performance web applications with optimized user interfaces.'
     },
     {
       icon: Workflow,
-      title: 'Workflow automation',
-      description: 'Reduce manual work and speed execution.'
+      title: 'Process Automation',
+      description: 'Deploying algorithmic solutions to eliminate repetitive operational overhead.'
     },
     {
       icon: BarChart3,
-      title: 'Operational visibility',
-      description: 'Dashboards focused on action, not noise.'
-    },
-    {
-      icon: Lock,
-      title: 'Practical security',
-      description: 'Secure systems without blocking teams.'
-    }
-  ]
-
-  const process = [
-    {
-      step: '01',
-      title: 'Understand',
-      description: 'Map real workflows and bottlenecks.'
-    },
-    {
-      step: '02',
-      title: 'Build',
-      description: 'Deliver a working solution quickly.'
-    },
-    {
-      step: '03',
-      title: 'Improve',
-      description: 'Refine continuously with your team.'
+      title: 'Analytical Dashboards',
+      description: 'Synthesizing complex data streams into high-clarity professional visualizations.'
     }
   ]
 
   return (
-    <>
-      {/* HERO */}
+    <div className="bg-[#FAF9FB]">
+      {/* HERO - Rebranded as an Infrastructure Overview */}
       <Hero
-        badge="Solutions"
-        title="Fix operational bottlenecks with practical systems"
-        description="We replace manual coordination, scattered tools, and unclear metrics with simple, connected workflows."
-        primaryCta={{ label: 'Talk to us', to: '/reach-us' }}
-        backgroundImage="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+        badge="Systems & Solutions"
+        subtitle="Operational Excellence"
+        title={<span>Digital <span className="text-[#D4AF37]">Infrastructure</span></span>}
+        description="Engineering professional-grade digital assets designed for scalability, reliability, and institutional utility."
+        bgImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2000"
       />
 
-      {/* PROBLEMS */}
+      {/* 1. CURRENT SYSTEMS - Side by Side Aesthetic */}
       <Section
-        subtitle="Problems"
-        title="What slows teams down"
+        subtitle="Infrastructure"
+        title="Core Development Focus"
+        description="Our current engineering efforts are dedicated to building resilient systems that solve complex organizational challenges."
       >
-        <div className="grid md:grid-cols-2 gap-6">
-          {problems.map((item, i) => (
-            <div
+        <div className="grid md:grid-cols-2 gap-8">
+          {infrastructure.map((item, i) => (
+            <Card 
               key={i}
-              className="group relative p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl hover:-translate-y-1 transition-all"
-            >
-              {/* Glow */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-red-400/10 blur-2xl transition" />
-
-              <div className="relative">
-                <div className="mb-4 w-12 h-12 rounded-xl bg-red-400/20 flex items-center justify-center">
-                  <item.icon className="w-6 h-6 text-red-400" />
-                </div>
-
-                <h3 className="text-white font-semibold mb-2">
-                  {item.title}
-                </h3>
-
-                <p className="text-surface-300 text-sm">
-                  {item.text}
-                </p>
-              </div>
-            </div>
+              icon={item.icon}
+              title={item.title}
+              description={item.text}
+              variant="soft"
+              className="border-l-4 border-[#3E103F]"
+            />
           ))}
         </div>
       </Section>
 
-      {/* SOLUTIONS */}
+      {/* 2. VERTICALS - The Royal Plum Grid */}
       <Section
-        subtitle="Solutions"
-        title="How we improve your operations"
-        className="bg-surface-900"
+        variant="dark"
+        subtitle="Verticals"
+        title="Service Specializations"
+        description="High-authority digital frameworks tailored for enterprise-level performance."
       >
-        <div className="grid md:grid-cols-2 gap-6">
-          {solutions.map((item, i) => (
-            <div
+        <div className="grid md:grid-cols-3 gap-8">
+          {verticals.map((item, i) => (
+            <Card
               key={i}
-              className="group relative p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl hover:-translate-y-1 hover:scale-[1.02] transition-all"
-            >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-brand-400/10 blur-2xl transition" />
-
-              <div className="relative">
-                <div className="mb-4 w-12 h-12 rounded-xl bg-brand-400/20 flex items-center justify-center">
-                  <item.icon className="w-6 h-6 text-brand-400" />
-                </div>
-
-                <h3 className="text-white font-semibold mb-2">
-                  {item.title}
-                </h3>
-
-                <p className="text-surface-300 text-sm">
-                  {item.description}
-                </p>
-              </div>
-            </div>
+              variant="royal"
+              icon={item.icon}
+              title={item.title}
+              description={item.description}
+              ctaText="System Overview"
+            />
           ))}
         </div>
       </Section>
 
-      {/* PROCESS */}
+      {/* 3. CASE STUDY PREVIEW - Adding 'Big Website' Size */}
+      <Section subtitle="Case Studies" title="Institutional Impact">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 items-center">
+          <div className="flex-1 w-full">
+            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl group">
+               <img 
+                src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200" 
+                alt="System Interface" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#3E103F] via-transparent to-transparent opacity-60" />
+            </div>
+          </div>
+          <div className="flex-1 space-y-6">
+            <div className="inline-block px-4 py-1 rounded-full bg-[#F3E8F7] text-[#3E103F] text-xs font-black tracking-widest uppercase">
+              Operational Case 01
+            </div>
+            <h3 className="text-4xl font-black text-[#3E103F] tracking-tighter">Workflow Optimization Synthesis</h3>
+            <p className="text-lg text-gray-600 leading-relaxed font-medium">
+              A comprehensive analysis and restructuring of digital touchpoints, resulting in a 40% 
+              increase in system throughput and reduced data latency.
+            </p>
+            <Link to="/reach-us" className="inline-flex items-center gap-2 text-[#3E103F] font-black group">
+              Request Full Documentation <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+            </Link>
+          </div>
+        </div>
+      </Section>
+
+      {/* 4. STRATEGIC PIPELINE - Dark Methodology */}
       <Section
-        subtitle="Process"
-        title="Simple execution"
+        variant="soft"
+        subtitle="Strategy"
+        title="Deployment Pipeline"
+        className="border-t border-[#E5D6EB]"
       >
-        <div className="grid md:grid-cols-3 gap-6">
-          {process.map((item, i) => (
-            <div
-              key={i}
-              className="rounded-3xl p-6 bg-surface-900 border border-surface-700 hover:border-brand-400 hover:scale-[1.03] transition"
-            >
-              <div className="text-brand-400 font-bold mb-2">
+        <div className="grid md:grid-cols-3 gap-10">
+          {[
+            { step: '01', title: 'Synthesis', desc: 'Aggregating requirements into a technical framework.' },
+            { step: '02', title: 'Architecture', desc: 'Engineering the core digital backbone and security layers.' },
+            { step: '03', title: 'Optimization', desc: 'Refining system performance based on institutional metrics.' },
+          ].map((item, i) => (
+            <div key={i} className="relative group">
+              <div className="text-6xl font-black text-[#3E103F]/5 absolute -top-10 -left-4 select-none">
                 {item.step}
               </div>
-
-              <h3 className="text-white font-semibold mb-2">
-                {item.title}
-              </h3>
-
-              <p className="text-surface-300 text-sm">
-                {item.description}
-              </p>
+              <div className="relative z-10">
+                <h3 className="text-[#1A1A1A] text-xl font-black mb-3 tracking-tighter uppercase">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
             </div>
           ))}
         </div>
       </Section>
 
-      {/* CTA */}
-      <Section className="relative text-center overflow-hidden">
-
-        {/* Glow */}
-        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-brand-400/20 blur-3xl pointer-events-none" />
-
-        <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
-          Ready to simplify your operations?
-        </h2>
-
-        <p className="text-surface-300 max-w-xl mx-auto mb-8">
-          If your team is stuck with manual work or disconnected tools, we’ll help you fix it.
-        </p>
-
-        <Link
-          to="/reach-us"
-          className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-gradient-to-r from-brand-400 to-brand-600 text-white font-semibold shadow-lg hover:scale-[1.05] active:scale-[0.98] transition-all"
-        >
-          Book a short call
-        </Link>
-      </Section>
-    </>
+      {/* FINAL CTA - Royal Plum Footer Block */}
+      <div className="bg-[#3E103F] py-24 text-center">
+        <div className="max-w-4xl mx-auto px-8">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tighter">
+            Ready to Partner with <span className="text-[#D4AF37]">Precision?</span>
+          </h2>
+          <p className="text-[#E2D1F9]/70 text-xl mb-10 font-medium max-w-2xl mx-auto">
+            Our administrative team is available for formal discussions regarding 
+            your institutional infrastructure requirements.
+          </p>
+          <Link
+            to="/reach-us"
+            className="inline-flex items-center gap-3 px-12 py-5 rounded-full bg-[#D4AF37] text-[#3E103F] font-black text-lg hover:bg-white transition-all shadow-2xl"
+          >
+            Initiate Contact
+          </Link>
+        </div>
+      </div>
+    </div>
   )
 }
 

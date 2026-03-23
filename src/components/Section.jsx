@@ -1,60 +1,89 @@
+import React from "react";
+
 function Section({
   id,
   title,
   subtitle,
   description,
   children,
-  className = '',
-  containerClass = '',
-  backgroundImage,
-  overlay = 'bg-surface-900/65',
+  className = "",
+  containerClass = "",
+  variant = "default", // default, soft, dark, or image
+  align = "center",    // center or left
 }) {
+  
+  // High-end Section Color Palettes
+  const variants = {
+    default: "bg-white text-[#1A1A1A]",
+    soft: "bg-[#F8F4F9] text-[#1A1A1A] border-y border-[#E5D6EB]",
+    dark: "bg-[#3E103F] text-white",
+    gold: "bg-[#D4AF37] text-[#3E103F]",
+  };
+
+  const subtitleColors = {
+    default: "text-[#3E103F]",
+    soft: "text-[#3E103F]",
+    dark: "text-[#D4AF37]",
+    gold: "text-white",
+  };
+
+  const descColors = {
+    default: "text-gray-600",
+    soft: "text-gray-700",
+    dark: "text-[#E2D1F9]/80",
+    gold: "text-[#3E103F]/80",
+  };
+
+  const alignmentClass = align === "left" ? "text-left mx-0" : "text-center mx-auto";
+
   return (
-    <section
-      id={id}
-      className={`relative py-16 lg:py-24 ${className}`}
-      style={
-        backgroundImage
-          ? {
-              backgroundImage: `linear-gradient(rgba(8, 14, 31, 0.92), rgba(7, 10, 28, 0.92)), url(${backgroundImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-            }
-          : {}
-      }
+    <section 
+      id={id} 
+      className={`relative py-24 lg:py-32 overflow-hidden transition-colors duration-500 ${variants[variant]} ${className}`}
     >
-      {backgroundImage && (
-        <div className={`absolute inset-0 ${overlay} pointer-events-none`} />
+      {/* Subtle Background Decoration for "Big" feel */}
+      {variant === "dark" && (
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-white/5 skew-x-[-20deg] translate-x-1/2 pointer-events-none" />
       )}
 
-      <div className={`relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${containerClass}`}>
+      <div className={`max-w-7xl mx-auto px-8 relative z-10 ${containerClass}`}>
+
         {(title || subtitle || description) && (
-          <div className="max-w-3xl mx-auto text-center mb-14">
+          <div className={`max-w-3xl mb-16 lg:mb-20 ${alignmentClass}`}>
+
+            {/* SUBTITLE - Now with a decorative line for 'Institutional' feel */}
             {subtitle && (
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] mb-3 text-brand-300">
-                {subtitle}
-              </p>
+              <div className={`flex items-center gap-3 mb-4 ${align === "center" ? "justify-center" : "justify-start"}`}>
+                
+                <p className={`text-xs font-black uppercase tracking-[0.4em] ${subtitleColors[variant]}`}>
+                  {subtitle}
+                </p>
+              </div>
             )}
 
+            {/* TITLE - Bold and tracking-tighter */}
             {title && (
-              <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl mb-4 text-white">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-6 tracking-tighter">
                 {title}
               </h2>
             )}
 
+            {/* DESCRIPTION - Better line-height for readability */}
             {description && (
-              <p className="text-base sm:text-lg leading-relaxed text-surface-300">
+              <p className={`text-lg lg:text-xl leading-relaxed ${descColors[variant]}`}>
                 {description}
               </p>
             )}
           </div>
         )}
 
-        {children}
+        {/* CONTENT AREA */}
+        <div className="w-full">
+          {children}
+        </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Section
+export default Section;

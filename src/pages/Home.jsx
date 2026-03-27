@@ -3,161 +3,228 @@ import Hero from "../components/Hero";
 import Section from "../components/Section";
 import Card from "../components/Card";
 import { Link } from "react-router-dom";
-import { 
-  ArrowRight, 
-  ShieldCheck, 
-  Cpu, 
-  Globe, 
-  Layers, 
-  Database
+import {
+  ArrowRight,
+  Zap,
+  Code,
+  Shield,
+  Rocket,
+  BarChart3
 } from "lucide-react";
 
 function Home() {
-  const capabilities = [
+
+  const services = [
     {
-      icon: Layers,
-      title: "Enterprise Architecture",
-      desc: "Engineering high-performance digital ecosystems for global infrastructure.",
+      icon: Rocket,
+      title: "Web Applications",
+      desc: "We build simple, scalable apps focused on real usage.",
       badge: "CORE"
     },
     {
-      icon: Database,
-      title: "Data Intelligence",
-      desc: "Synthesizing complex data streams into actionable organizational insights.",
-      badge: "NEW"
+      icon: BarChart3,
+      title: "Data & Analytics",
+      desc: "Early insights to help you make better decisions.",
+      badge: "INSIGHTS"
     },
     {
-      icon: Cpu,
-      title: "System Automation",
-      desc: "Optimizing operational workflows through advanced algorithmic integration.",
-      badge: "TECH"
+      icon: Shield,
+      title: "Digital Security",
+      desc: "Basic security practices from day one.",
+      badge: "SECURE"
     }
   ];
 
   return (
     <div className="bg-[#FAF9FB]">
-      {/* 1. HERO - The High-Authority Entrance */}
+
+      {/* HERO */}
       <Hero
-        badge="Institutional Framework"
-        subtitle="Global IT Solutions • Enterprise Excellence"
-        title={<span>PROTICO<span className="text-[#D4AF37]"></span></span>}
-        description="Protico Technology Private Limited delivers sophisticated digital architecture and professional system integration. We bridge the gap between complex technology and organizational utility."
-        primaryCta={{ label: "View Infrastructure", to: "/solutions" }}
-        secondaryCta={{ label: "Inquiry Hub", to: "/reach-us" }}
+        badge="Early Stage Team"
+        subtitle="Building • Learning • Improving"
+        title="We’re Building Digital Products - One Step at a Time"
+        description="We’re a small team focused on creating simple, working solutions. Still growing, still learning - but serious about what we build."
+        primaryCta={{ label: "Start a Conversation", to: "/solutions" }}
+        secondaryCta={{ label: "Contact Us", to: "/reach-us" }}
       />
 
-      {/* 2. CORE PHILOSOPHY - Precision Layout */}
-      <Section subtitle="Institutional Mission" title="The Standard of Engineering" align="left">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          <div className="flex-1 space-y-6">
-            <p className="text-2xl font-black text-[#3E103F] tracking-tighter">
-              Precision. Reliability. Professionalism.
-            </p>
-            <p className="text-gray-600 leading-relaxed text-lg font-medium">
-              Unlike small-scale projects, Protico Technology focuses on <strong>Institutional longevity</strong>. 
-              Our systems are built to scale, ensuring that digital tools serve as a robust backbone 
-              for professional operations across the NCR region and beyond.
-            </p>
-            <div className="pt-4">
-              <Link to="/company" className="group inline-flex items-center gap-3 text-[#3E103F] font-black border-b-2 border-[#D4AF37] pb-1 hover:gap-5 transition-all">
-                Learn About Our Standards <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-          </div>
-          <div className="flex-1 relative">
-            <div className="relative group overflow-hidden rounded-[3rem] shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" 
-                alt="Office Infrastructure" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-[#3E103F]/10 group-hover:bg-transparent transition-colors" />
-            </div>
-            {/* Decorative Gold Element */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#D4AF37] rounded-full z-[-1] opacity-50 blur-2xl" />
-          </div>
+      {/* EARLY STAGE NOTE */}
+      <Section subtitle="About Us" title="Where We Are Right Now">
+        <div className="max-w-3xl text-center mx-auto space-y-4">
+          <p className="text-gray-700">
+            We're in the early stages. No big claims, no inflated numbers.
+            Just focused on building useful products and improving every day.
+          </p>
+          <p className="text-gray-600">
+            If you're looking for a long-term tech partner who grows with you,
+            that's where we fit in.
+          </p>
         </div>
       </Section>
 
-      {/* 3. CAPABILITIES GRID - Using the Royal Variant */}
-      <Section 
-        variant="dark" 
-        subtitle="Competencies" 
-        title="Professional Service Verticals"
-        description="Delivering specialized technical expertise across three primary digital domains."
-      >
-        <div className="grid md:grid-cols-3 gap-8">
-          {capabilities.map((item, i) => (
+      {/* WHY US */}
+      <Section subtitle="Why Us" title="How We Approach Things">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div className="space-y-6">
+            <h3 className="text-3xl font-black text-[#3E103F]">
+              We focus on clarity over complexity.
+            </h3>
+
+            <p className="text-gray-700">
+              We don’t over-engineer. We don’t over-promise.
+              We build what’s needed - clean, simple, and scalable.
+            </p>
+
+            <ul className="space-y-3 text-gray-600">
+              <li>✔ Clear and honest communication</li>
+              <li>✔ Practical solutions, not hype</li>
+              <li>✔ Built to improve over time</li>
+            </ul>
+
+            <Link
+              to="/company"
+              className="inline-flex items-center gap-2 font-bold text-[#3E103F] border-b-2 border-[#D4AF37]"
+            >
+              Learn More <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <img
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978"
+            className="rounded-[2rem] shadow-xl"
+          />
+        </div>
+      </Section>
+
+      {/* SERVICES */}
+      <Section subtitle="Services" title="What We're Working On">
+        <div className="grid md:grid-cols-3 gap-6">
+          {services.map((item, i) => (
             <Card
               key={i}
-              variant="royal" // Matches the Royal Plum/Gold theme
+              variant="royal"
               icon={item.icon}
               title={item.title}
               description={item.desc}
               badge={item.badge}
-              ctaText="Explore Vertical"
+              ctaText="Explore"
             />
           ))}
         </div>
       </Section>
 
-      {/* 4. KNOWLEDGE HUB - Adding "Weight" to the brand */}
-      <Section subtitle="Perspectives" title="Industry Intelligence">
-        <div className="grid md:grid-cols-2 gap-10">
-          {[
-            { 
-              img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800", 
-              title: "Security Protocols 2026",
-              category: "CYBER-INTEGRITY"
-            },
-            { 
-              img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800", 
-              title: "Cloud Architecture Synthesis",
-              category: "INFRASTRUCTURE"
-            }
-          ].map((post, i) => (
-            <div key={i} className="group relative h-[450px] overflow-hidden rounded-[3rem] cursor-pointer shadow-xl">
-              <img 
-                src={post.img} 
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" 
-                alt="post" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#3E103F] via-[#3E103F]/40 to-transparent opacity-90" />
-              <div className="absolute bottom-12 left-12 right-12">
-                <p className="text-[#D4AF37] font-black text-xs tracking-[0.3em] mb-4 uppercase">{post.category}</p>
-                <h4 className="text-white text-3xl font-black tracking-tighter leading-tight group-hover:text-[#D4AF37] transition-colors">
-                  {post.title}
-                </h4>
-              </div>
-            </div>
-          ))}
+      {/* WHAT WE'RE BUILDING (NEW SECTION) */}
+      <Section subtitle="Focus" title="What We Care About">
+        <div className="grid md:grid-cols-3 gap-6 text-center">
+
+          <div className="bg-white p-6 rounded-2xl border">
+            <h4 className="font-bold text-[#3E103F] mb-2">Usability</h4>
+            <p className="text-gray-600 text-sm">
+              Products should be easy to use without explanation.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border">
+            <h4 className="font-bold text-[#3E103F] mb-2">Performance</h4>
+            <p className="text-gray-600 text-sm">
+              Fast, responsive, and optimized from the start.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border">
+            <h4 className="font-bold text-[#3E103F] mb-2">Scalability</h4>
+            <p className="text-gray-600 text-sm">
+              Built so it can grow when you grow.
+            </p>
+          </div>
+
         </div>
       </Section>
 
-      {/* 5. FINAL INSTITUTIONAL STATEMENT - High Contrast Gold */}
-      <div className="bg-[#D4AF37] py-24 text-center relative overflow-hidden">
-        {/* Subtle Decorative Circle */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32" />
-        
-        <div className="max-w-4xl mx-auto px-8 relative z-10">
-          <div className="inline-flex p-5 rounded-3xl bg-[#3E103F] shadow-2xl mb-8">
-            <ShieldCheck className="w-12 h-12 text-[#D4AF37]" />
-          </div>
-          <h2 className="text-4xl md:text-6xl font-black text-[#3E103F] mb-8 tracking-tighter">
-            Partner with Institutional Reliability.
-          </h2>
-          <p className="text-[#3E103F]/80 text-xl md:text-2xl mb-12 font-bold leading-relaxed max-w-2xl mx-auto">
-            Initiate contact with our administrative team for inquiries regarding system architecture and digital transformation.
-          </p>
-          <Link
-            to="/reach-us"
-            className="inline-flex items-center gap-3 bg-[#3E103F] text-white px-14 py-6 rounded-full font-black text-xl hover:shadow-[0_20px_50px_rgba(62,16,63,0.4)] transition-all hover:-translate-y-2 uppercase tracking-widest"
-          >
-            Initiate Contact Hub
-            <ArrowRight className="w-6 h-6" />
-          </Link>
+      {/* PROCESS */}
+      <Section subtitle="Process" title="How We Work">
+        <div className="grid md:grid-cols-3 gap-6">
+
+          {[
+            {
+              num: "01",
+              title: "Understand",
+              desc: "We listen first before building anything."
+            },
+            {
+              num: "02",
+              title: "Build",
+              desc: "We keep things simple and functional."
+            },
+            {
+              num: "03",
+              title: "Improve",
+              desc: "We refine based on real feedback."
+            }
+          ].map((step, i) => (
+            <div
+              key={i}
+              className="bg-white p-8 rounded-2xl border hover:shadow-lg transition"
+            >
+              <div className="text-4xl font-black text-[#D4AF37] mb-4">
+                {step.num}
+              </div>
+
+              <h3 className="font-bold text-xl text-[#3E103F] mb-2">
+                {step.title}
+              </h3>
+
+              <p className="text-gray-600">{step.desc}</p>
+            </div>
+          ))}
+
         </div>
+      </Section>
+
+      {/* TRUST */}
+      <Section subtitle="Principles" title="What You Can Expect">
+        <div className="grid md:grid-cols-3 gap-8 text-center">
+
+          <div>
+            <Zap className="mx-auto text-[#D4AF37]" size={32} />
+            <h4 className="font-bold mt-4 text-[#3E103F]">No Overpromising</h4>
+            <p className="text-gray-600 text-sm">We say only what we can deliver.</p>
+          </div>
+
+          <div>
+            <Code className="mx-auto text-[#D4AF37]" size={32} />
+            <h4 className="font-bold mt-4 text-[#3E103F]">Clean Work</h4>
+            <p className="text-gray-600 text-sm">Code that actually makes sense.</p>
+          </div>
+
+          <div>
+            <Shield className="mx-auto text-[#D4AF37]" size={32} />
+            <h4 className="font-bold mt-4 text-[#3E103F]">Transparency</h4>
+            <p className="text-gray-600 text-sm">No hidden process or confusion.</p>
+          </div>
+
+        </div>
+      </Section>
+
+      {/* CTA */}
+      <div className="bg-[#D4AF37] py-20 text-center">
+        <h2 className="text-4xl font-black text-[#3E103F] mb-4">
+          Let’s Start Small
+        </h2>
+
+        <p className="text-[#3E103F]/80 mb-8">
+          A simple conversation is enough to begin.
+        </p>
+
+        <Link
+          to="/reach-us"
+          className="bg-[#3E103F] text-white px-10 py-4 rounded-full font-bold inline-flex items-center gap-2"
+        >
+          Contact Us <ArrowRight />
+        </Link>
       </div>
+
     </div>
   );
 }

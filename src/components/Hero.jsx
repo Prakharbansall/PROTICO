@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 function Hero({
   badge,
@@ -9,119 +9,177 @@ function Hero({
   description,
   primaryCta,
   secondaryCta,
-  children,
-  bgImage = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000"
 }) {
-  // Common style for that 'Heavy' Enterprise Font
-  const fontStyle = { fontFamily: "'Inter', sans-serif" };
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  // default fallback (agar props na aaye)
+  const features = [
+    {
+      icon: "✨",
+      title: "Thoughtful Work",
+      desc: "We focus on clarity over complexity",
+      bg: "bg-[#D4AF37]/20",
+    },
+    {
+      icon: "🚀",
+      title: "Still Improving",
+      desc: "We iterate and improve every day",
+      bg: "bg-[#9B4DCA]/20",
+    },
+    {
+      icon: "🎯",
+      title: "User Focused",
+      desc: "We build based on real feedback",
+      bg: "bg-[#D4AF37]/20",
+    },
+    {
+  icon: "📈",
+  title: "Progress Over Perfection",
+  desc: "We focus on moving forward instead of waiting for perfect",
+  bg: "bg-[#9B4DCA]/20",
+},
+{
+  icon: "🔍",
+  title: "Attention to Detail",
+  desc: "We care about the small things that improve the experience",
+  bg: "bg-[#D4AF37]/20",
+},
+  ];
 
   return (
-    <section 
-      style={fontStyle}
-      className="relative pt-32 pb-24 overflow-hidden min-h-[90vh] flex items-center bg-[#3E103F]"
-    >
+    <section className="relative bg-gradient-to-b from-[#1A0B2E] via-[#2D1B4E] to-[#3E103F] text-white pt-32 pb-32 overflow-hidden">
       
-      {/* 1. ATMOSPHERIC BACKGROUND */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={bgImage} 
-          alt="Infrastructure" 
-          className="w-full h-full object-cover opacity-10 scale-110"
-        />
-        {/* Layered Gradients for Depth */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#3E103F] via-[#3E103F]/95 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#3E103F]/50 to-[#3E103F]" />
-        
-        {/* Gold Glow Effects */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37]/5 blur-[150px] rounded-full" />
-        <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] bg-[#D4AF37]/10 blur-[150px] rounded-full" />
+      {/* Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#D4AF37]/20 rounded-full blur-3xl opacity-40 animate-pulse" />
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#9B4DCA]/20 rounded-full blur-3xl opacity-30 animate-pulse" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
-        <div className="flex flex-col lg:flex-row items-center gap-20">
+      <div className="relative max-w-7xl mx-auto px-6 z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           
-          {/* CONTENT SIDE */}
-          <div className="flex-[1.4] text-center lg:text-left">
-            
-            {/* BADGE - Clean & Minimal */}
+          {/* LEFT */}
+          <div
+            className={`transition-all duration-1000 ${
+              isVisible ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            {/* Badge */}
             {badge && (
-              <div className="inline-flex items-center gap-2 mb-10 px-5 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl transition-all hover:bg-white/10">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#D4AF37]" />
-                <span className="text-[11px] font-black uppercase tracking-[0.4em] text-white/90">
+              <div className="mb-6 inline-block">
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-xs uppercase text-[#D4AF37] font-semibold">
+                  <Sparkles size={12} />
                   {badge}
                 </span>
               </div>
             )}
 
-            {/* SUBTITLE - The 'Royal' Line */}
+            {/* Title */}
+            {title && (
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 bg-gradient-to-r from-white via-white to-[#D4AF37] bg-clip-text text-transparent">
+                {title}
+              </h1>
+            )}
+
+            {/* Subtitle */}
             {subtitle && (
-              <p className="text-[#D4AF37] font-extrabold text-xs mb-5 uppercase tracking-[0.5em] leading-none">
+              <p className="text-lg text-[#D4AF37] font-semibold mb-4">
                 {subtitle}
               </p>
             )}
 
-            {/* MAIN TITLE - This is where the aesthetic lives */}
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white leading-[0.9] mb-10 tracking-[-0.05em]">
-              {title}
-            </h1>
-
-            {/* DESCRIPTION - Clean line-height */}
+            {/* Description */}
             {description && (
-              <p className="text-[#E2D1F9]/70 text-lg md:text-xl max-w-xl mb-12 leading-relaxed font-light lg:mx-0 mx-auto">
+              <p className="text-gray-300 text-lg leading-relaxed mb-8 max-w-lg">
                 {description}
               </p>
             )}
 
-            {/* CTA GROUP */}
-            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-6">
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
               {primaryCta && (
                 <Link
                   to={primaryCta.to}
-                  className="group inline-flex items-center justify-center gap-3 px-12 py-5 rounded-full bg-[#D4AF37] text-[#3E103F] font-black text-sm uppercase tracking-widest hover:bg-white transition-all shadow-[0_20px_50px_rgba(212,175,55,0.2)] hover:-translate-y-1"
+                  className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-[#3E103F] bg-gradient-to-r from-[#D4AF37] to-[#F4D03F]"
                 >
                   {primaryCta.label}
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                  <ArrowRight className="group-hover:translate-x-2 transition" />
                 </Link>
               )}
 
               {secondaryCta && (
                 <Link
                   to={secondaryCta.to}
-                  className="inline-flex items-center justify-center gap-3 px-12 py-5 rounded-full border border-white/20 text-white font-bold text-sm uppercase tracking-widest hover:bg-white/5 hover:border-white transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold border-2 border-white/20 text-white hover:bg-white/10 transition"
                 >
                   {secondaryCta.label}
                 </Link>
               )}
             </div>
+
+            {/* Trust line */}
+            <p className="text-sm text-white/40">
+              💬 No pressure • Just a simple conversation
+            </p>
           </div>
 
-          {/* VISUAL SIDE - The 'Glass' Card */}
-          <div className="flex-1 w-full flex justify-center lg:justify-end">
-            {children ? (
-              <div className="relative group p-4 rounded-[4rem] bg-gradient-to-tr from-white/10 to-transparent border border-white/10 backdrop-blur-md shadow-2xl transition-transform duration-700 hover:scale-[1.02]">
-                <div className="rounded-[3rem] overflow-hidden shadow-inner">
-                  {children}
-                </div>
-                {/* Decorative Elements */}
-                <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#D4AF37]/20 blur-3xl rounded-full" />
+          {/* RIGHT (cards) */}
+          <div className="relative h-96 lg:h-full min-h-96">
+            <div className="relative h-full rounded-2xl overflow-hidden">
+              
+              <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] via-[#9B4DCA] to-[#D4AF37] p-1 rounded-2xl">
+                <div className="absolute inset-1 bg-[#1A0B2E]/90 rounded-xl" />
               </div>
-            ) : (
-              /* High-End Institutional Graphic */
-              <div className="relative w-full max-w-md aspect-square flex items-center justify-center">
-                <div className="absolute inset-0 border border-white/5 rounded-full animate-[spin_30s_linear_infinite]" />
-                <div className="absolute inset-12 border border-[#D4AF37]/10 rounded-full animate-[spin_20s_linear_infinite_reverse]" />
-                <div className="absolute inset-24 border border-white/10 rounded-full" />
-                <div className="text-white/[0.03] font-black text-9xl tracking-tighter pointer-events-none select-none">
-                  Protico
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
+
+              <div className="relative z-10 h-full p-8 flex flex-col justify-between">
+                
+               <div className="space-y-5">
+  {features.map((item, index) => (
+    <div
+      key={index}
+      className={`flex items-start gap-4 p-4 rounded-lg hover:bg-white/5 transition-all duration-700 ${
+        isVisible
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-6"
+      }`}
+      style={{
+        transitionDelay: `${index * 150}ms`, // 🔥 stagger effect
+      }}
+    >
+      <div
+        className={`w-12 h-12 ${item.bg} rounded-lg flex items-center justify-center`}
+      >
+        {item.icon}
       </div>
 
-      {/* REFINED BOTTOM TRANSITION */}
-      <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-[#FAF9FB] via-[#FAF9FB]/40 to-transparent z-10" />
+      <div>
+        <h3 className="font-bold text-white">
+          {item.title}
+        </h3>
+        <p className="text-sm text-gray-400">
+          {item.desc}
+        </p>
+      </div>
+    </div>
+  ))}
+</div>
+                  
+
+                <div className="pt-6 border-t border-white/10">
+                  <p className="text-xs text-white/50">
+                    Building trust, one project at a time.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
   );
 }

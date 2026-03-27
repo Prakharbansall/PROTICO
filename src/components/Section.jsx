@@ -8,14 +8,13 @@ function Section({
   children,
   className = "",
   containerClass = "",
-  variant = "default", // default, soft, dark, or image
-  align = "center",    // center or left
+  variant = "default",
+  align = "center",
 }) {
-  
-  // High-end Section Color Palettes
+
   const variants = {
     default: "bg-white text-[#1A1A1A]",
-    soft: "bg-[#F8F4F9] text-[#1A1A1A] border-y border-[#E5D6EB]",
+    soft: "bg-[#F8F4F9] text-[#1A1A1A]",
     dark: "bg-[#3E103F] text-white",
     gold: "bg-[#D4AF37] text-[#3E103F]",
   };
@@ -30,57 +29,51 @@ function Section({
   const descColors = {
     default: "text-gray-600",
     soft: "text-gray-700",
-    dark: "text-[#E2D1F9]/80",
+    dark: "text-white/70",
     gold: "text-[#3E103F]/80",
   };
 
-  const alignmentClass = align === "left" ? "text-left mx-0" : "text-center mx-auto";
+  const alignment = align === "left" ? "text-left" : "text-center";
+  const alignCenter = align === "center" ? "mx-auto" : "";
 
   return (
-    <section 
-      id={id} 
-      className={`relative py-24 lg:py-32 overflow-hidden transition-colors duration-500 ${variants[variant]} ${className}`}
+    <section
+      id={id}
+      className={`py-14 md:py-16 ${variants[variant]} ${className}`}
     >
-      {/* Subtle Background Decoration for "Big" feel */}
-      {variant === "dark" && (
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-white/5 skew-x-[-20deg] translate-x-1/2 pointer-events-none" />
-      )}
-
-      <div className={`max-w-7xl mx-auto px-8 relative z-10 ${containerClass}`}>
+      <div className={`max-w-6xl mx-auto px-6 ${containerClass}`}>
 
         {(title || subtitle || description) && (
-          <div className={`max-w-3xl mb-16 lg:mb-20 ${alignmentClass}`}>
+          <div className={`max-w-2xl mb-10 ${alignment} ${alignCenter}`}>
 
-            {/* SUBTITLE - Now with a decorative line for 'Institutional' feel */}
+            {/* SUBTITLE */}
             {subtitle && (
-              <div className={`flex items-center gap-3 mb-4 ${align === "center" ? "justify-center" : "justify-start"}`}>
-                
-                <p className={`text-xs font-black uppercase tracking-[0.4em] ${subtitleColors[variant]}`}>
-                  {subtitle}
-                </p>
-              </div>
+              <p className={`text-xs uppercase tracking-wider mb-2 font-semibold ${subtitleColors[variant]}`}>
+                {subtitle}
+              </p>
             )}
 
-            {/* TITLE - Bold and tracking-tighter */}
+            {/* TITLE */}
             {title && (
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-6 tracking-tighter">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight">
                 {title}
               </h2>
             )}
 
-            {/* DESCRIPTION - Better line-height for readability */}
+            {/* DESCRIPTION */}
             {description && (
-              <p className={`text-lg lg:text-xl leading-relaxed ${descColors[variant]}`}>
+              <p className={`text-sm md:text-base leading-relaxed ${descColors[variant]}`}>
                 {description}
               </p>
             )}
           </div>
         )}
 
-        {/* CONTENT AREA */}
+        {/* CONTENT */}
         <div className="w-full">
           {children}
         </div>
+
       </div>
     </section>
   );

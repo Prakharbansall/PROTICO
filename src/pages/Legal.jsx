@@ -1,120 +1,257 @@
 import Hero from "../components/Hero";
 import Section from "../components/Section";
+import { Shield, Lock, Eye, AlertCircle } from "lucide-react";
 
 function Legal() {
   return (
     <div className="bg-[#FAF9FB] min-h-screen">
-      {/* HERO with Background Image */}
+      
+      {/* HERO */}
       <div className="relative overflow-hidden bg-[#3E103F]">
-        {/* Abstract Background Image Overlay */}
         <img 
           src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=2000" 
-          alt="Library background" 
+          alt="Legal" 
           className="absolute inset-0 w-full h-full object-cover opacity-20"
+          primaryCta={{ label: "Start a Project", to: "/solutions" }}
         />
         <div className="relative z-10">
           <Hero
-            badge="Institutional Governance"
-            title="Terms & Data Integrity"
-            description="Our professional framework for content distribution, privacy protection, and user safety."
+            badge="Legal & Privacy"
+            title="Your Data is Safe With Us"
+            description="We take privacy seriously. Here's what you need to know about how we handle your information."
+            secondaryCta={{ label: "Contact Us", to: "/reach-us" }}
           />
         </div>
       </div>
 
-      {/* 1. INTRO with Side Image (The 'Big Site' Layout) */}
-      <Section subtitle="Foundations" title="Our Editorial Standards">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1 space-y-4 text-lg text-gray-700">
-            <p className="font-semibold text-[#3E103F]">
-              Operating with transparency and academic rigor.
-            </p>
-            <p>
-              ProTico Technology is more than a blog; it is a repository of verified insights. 
-              Our commitment to high-standard information ensures that every reader interacts with content 
-              that is ethically sourced and legally protected.
-            </p>
-          </div>
-          <div className="flex-1 w-full">
-            <img 
-              src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800" 
-              alt="Professional legal document" 
-              className="rounded-2xl shadow-2xl border-b-8 border-[#3E103F]"
-            />
-          </div>
-        </div>
-      </Section>
-
-      {/* 2. TERMS - Two Column Grid */}
-      <Section
-        subtitle="Policy"
-        title="Intellectual Property"
-        className="bg-white"
-      >
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-          <div className="p-8 bg-[#F8F4F9] rounded-xl border-t-4 border-[#3E103F]">
-            <h4 className="text-[#3E103F] font-bold text-xl mb-3">Content Rights</h4>
-            <p className="text-gray-600">
-              All materials, including articles, code snippets, and research data, are protected 
-              under international copyright laws. Unauthorized scraping or commercial use is strictly monitored.
-            </p>
-          </div>
-          <div className="p-8 bg-[#F8F4F9] rounded-xl border-t-4 border-[#3E103F]">
-            <h4 className="text-[#3E103F] font-bold text-xl mb-3">User Responsibility</h4>
-            <p className="text-gray-600">
-              Readers are expected to use our resources for educational and professional growth. 
-              Any attempt to disrupt our digital architecture will result in permanent access revocation.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* 3. PRIVACY - Full Width Image Background Section */}
-      <div className="relative py-24 my-12">
-        <img 
-          src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1500" 
-          alt="Secure server" 
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-[#3E103F]/90"></div> {/* Plum Overlay */}
-        <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
-          <h2 className="text-white text-4xl font-bold mb-6">Global Privacy Standards</h2>
-          <p className="text-[#E2D1F9] text-xl mb-8">
-            We employ enterprise-grade encryption to ensure that your interaction with our 
-            knowledge base remains private and secure.
+      {/* INTRO - Make it Human */}
+      <Section subtitle="Legal Stuff" title="We Keep It Simple">
+        <div className="max-w-4xl mx-auto space-y-6">
+          <p className="text-xl text-gray-700 leading-relaxed font-medium">
+            Legal agreements don't have to be scary. Here's ours in plain English.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {['Encrypted', 'Anonymous', 'Safe', 'Verified'].map((item) => (
-              <div key={item} className="bg-white/10 backdrop-blur-md p-4 rounded-lg text-white font-bold border border-white/20">
-                {item}
+          <p className="text-gray-600 leading-relaxed">
+            When you work with us or use our services, we want you to understand exactly what's happening 
+            with your data and information. No hidden terms. No surprises. Just honest communication.
+          </p>
+        </div>
+      </Section>
+
+      {/* PILLARS */}
+      <Section variant="soft" subtitle="Three Core Commitments" title="How We Protect You">
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            {
+              icon: Shield,
+              title: "Your Data is Private",
+              desc: "We don't sell your data. We don't share it without permission. Period."
+            },
+            {
+              icon: Lock,
+              title: "Security First",
+              desc: "Enterprise-grade encryption. Regular security audits. We take protection seriously."
+            },
+            {
+              icon: Eye,
+              title: "Full Transparency",
+              desc: "You always know what data we're collecting and why. No secrets."
+            }
+          ].map((item, i) => (
+            <div key={i} className="p-10 rounded-2xl bg-white border border-[#E5D6EB] hover:border-[#3E103F] transition-all text-center">
+              <div className="w-16 h-16 rounded-full bg-[#F3E8F7] flex items-center justify-center mx-auto mb-6">
+                <item.icon className="w-8 h-8 text-[#3E103F]" />
               </div>
-            ))}
+              <h3 className="text-2xl font-black text-[#3E103F] mb-4">{item.title}</h3>
+              <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* TERMS OF SERVICE */}
+      <Section subtitle="Agreement" title="Terms of Service">
+        <div className="max-w-4xl mx-auto space-y-8">
+          
+          <div className="p-8 rounded-2xl border border-[#E5D6EB] bg-white">
+            <h4 className="text-2xl font-black text-[#3E103F] mb-4">What You Get</h4>
+            <ul className="space-y-3 text-gray-700">
+              <li className="flex gap-3">
+                <span className="text-[#D4AF37] font-bold">✓</span>
+                <span>Access to our services and software as described in our agreements</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#D4AF37] font-bold">✓</span>
+                <span>Professional support during business hours</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#D4AF37] font-bold">✓</span>
+                <span>Regular updates and security patches</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#D4AF37] font-bold">✓</span>
+                <span>Access to your data whenever you need it</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="p-8 rounded-2xl border border-[#E5D6EB] bg-white">
+            <h4 className="text-2xl font-black text-[#3E103F] mb-4">What We Ask From You</h4>
+            <ul className="space-y-3 text-gray-700">
+              <li className="flex gap-3">
+                <span className="text-[#D4AF37] font-bold">•</span>
+                <span>Use our services legally and responsibly</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#D4AF37] font-bold">•</span>
+                <span>Don't try to hack or abuse our systems</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#D4AF37] font-bold">•</span>
+                <span>Pay invoices on time (this is important to us)</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#D4AF37] font-bold">•</span>
+                <span>Tell us if you see a security issue</span>
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
+      </Section>
 
-      {/* 4. CONTACT - The 'Big Closing' */}
-      <Section subtitle="Communication" title="Reach Our Administration">
-        <div className="max-w-5xl mx-auto relative rounded-[3rem] overflow-hidden shadow-2xl">
+      {/* PRIVACY POLICY */}
+      <Section variant="soft" subtitle="Your Information" title="Privacy Policy">
+        <div className="max-w-4xl mx-auto space-y-6">
+          <div>
+            <h4 className="text-2xl font-black text-[#3E103F] mb-4">What Data Do We Collect?</h4>
+            <div className="space-y-3 text-gray-700">
+              <p>
+                <strong>When you contact us:</strong> Your name, email, phone number, and message.
+              </p>
+              <p>
+                <strong>When you use our services:</strong> Information about how you use them 
+                (logins, features used, etc.). This helps us improve.
+              </p>
+              <p>
+                <strong>Payment info:</strong> We use secure payment processors. We never store full credit card numbers.
+              </p>
+            </div>
+          </div>
+
+          <div className="border-t border-[#E5D6EB] pt-6">
+            <h4 className="text-2xl font-black text-[#3E103F] mb-4">How Do We Use It?</h4>
+            <div className="space-y-3 text-gray-700">
+              <p>✓ To provide you with our services</p>
+              <p>✓ To improve our products (we're always learning)</p>
+              <p>✓ To keep you updated (only if you opt in)</p>
+              <p>✓ To prevent fraud and security issues</p>
+              <p>✗ We do NOT sell your data to third parties</p>
+            </div>
+          </div>
+
+          <div className="border-t border-[#E5D6EB] pt-6">
+            <h4 className="text-2xl font-black text-[#3E103F] mb-4">Your Rights</h4>
+            <div className="space-y-3 text-gray-700">
+              <p>
+                <strong>Access:</strong> You can ask us what data we have about you.
+              </p>
+              <p>
+                <strong>Delete:</strong> You can request we delete your data (subject to legal requirements).
+              </p>
+              <p>
+                <strong>Export:</strong> You can get a copy of your data anytime.
+              </p>
+              <p>
+                <strong>Opt-out:</strong> Unsubscribe from marketing emails anytime.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* SECURITY */}
+      <Section subtitle="Protection" title="How We Keep Your Data Safe">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="p-8 rounded-2xl bg-white border border-[#E5D6EB]">
+            <h4 className="text-xl font-black text-[#3E103F] mb-4">Technical Security</h4>
+            <ul className="space-y-2 text-gray-700 text-sm">
+              <li>✓ SSL encryption for all data in transit</li>
+              <li>✓ AES-256 encryption at rest</li>
+              <li>✓ Regular security audits</li>
+              <li>✓ Automated backups</li>
+              <li>✓ Firewalls and intrusion detection</li>
+            </ul>
+          </div>
+          <div className="p-8 rounded-2xl bg-white border border-[#E5D6EB]">
+            <h4 className="text-xl font-black text-[#3E103F] mb-4">Operational Security</h4>
+            <ul className="space-y-2 text-gray-700 text-sm">
+              <li>✓ Limited employee access to data</li>
+              <li>✓ Strong password policies</li>
+              <li>✓ Security training for all staff</li>
+              <li>✓ Incident response plan</li>
+              <li>✓ Regular penetration testing</li>
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      {/* COOKIES & TRACKING */}
+      <Section subtitle="Transparency" title="Cookies & Analytics">
+        <div className="max-w-4xl mx-auto space-y-6">
+          <div className="p-8 rounded-2xl border-2 border-[#D4AF37]/30 bg-white">
+            <div className="flex gap-4 items-start">
+              <AlertCircle className="w-6 h-6 text-[#D4AF37] shrink-0 mt-1" />
+              <div>
+                <h4 className="font-black text-[#3E103F] mb-2">No Creepy Tracking</h4>
+                <p className="text-gray-700">
+                  We use basic analytics to understand how people use our site. 
+                  No tracking pixels. No third-party cookies. No selling to ad networks.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p className="text-gray-600">
+            We use industry-standard analytics tools that respect your privacy. 
+            You can always opt out of analytics in your browser settings.
+          </p>
+        </div>
+      </Section>
+
+      {/* CONTACT */}
+      <Section subtitle="Questions?" title="Reach Our Legal Team">
+        <div className="max-w-4xl mx-auto relative rounded-[3rem] overflow-hidden shadow-2xl">
           <img 
             src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" 
-            alt="Modern office" 
+            alt="Contact" 
             className="absolute inset-0 w-full h-full object-cover opacity-30"
           />
           <div className="relative bg-[#3E103F]/80 p-16 text-center text-white backdrop-blur-sm">
-            <h3 className="text-3xl font-bold mb-4">Have a Governance Question?</h3>
-            <p className="max-w-2xl mx-auto mb-8 text-[#E2D1F9]">
-              Our legal and editorial teams are here to clarify any concerns regarding 
-              our digital footprint or your data rights.
+            <h3 className="text-3xl font-black mb-4">Have Questions About Privacy?</h3>
+            <p className="max-w-2xl mx-auto mb-8 text-[#E2D1F9] text-lg">
+              We're happy to explain anything. Email us anytime and we'll get back to you within 24 hours.
             </p>
             <a
               href="mailto:contact@proticotechnology.com"
-              className="inline-block bg-[#D4AF37] hover:bg-[#F1C40F] text-[#3E103F] px-10 py-4 rounded-full font-black text-lg transition-all transform hover:scale-105 shadow-lg"
+              className="inline-block bg-[#D4AF37] hover:bg-white text-[#3E103F] px-10 py-4 rounded-full font-black text-lg transition-all transform hover:scale-105 shadow-lg"
             >
               contact@proticotechnology.com
             </a>
           </div>
         </div>
       </Section>
+
+      {/* FOOTER NOTE */}
+      <div className="bg-white border-t border-[#E5D6EB] py-12">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <p className="text-gray-600 text-sm">
+            Last updated: March 2026 • We update our policies as needed to keep you protected.
+          </p>
+          <p className="text-gray-500 text-xs mt-4">
+            By using Protico's services, you agree to our Terms of Service and Privacy Policy. 
+            If you don't agree, please let us know.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

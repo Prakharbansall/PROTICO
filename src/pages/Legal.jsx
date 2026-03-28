@@ -231,10 +231,10 @@ function Legal() {
               We're happy to explain anything. Email us anytime and we'll get back to you within 24 hours.
             </p>
             <a
-              href="mailto:contact@proticotechnology.com"
+              href="mailto:Get@resoneraaipvtltd.in"
               className="inline-block bg-[#D4AF37] hover:bg-white text-[#3E103F] px-10 py-4 rounded-full font-black text-lg transition-all transform hover:scale-105 shadow-lg"
             >
-              contact@proticotechnology.com
+              Get@resoneraaipvtltd.in
             </a>
           </div>
         </div>
@@ -244,7 +244,7 @@ function Legal() {
       <div className="bg-white border-t border-[#E5D6EB] py-12">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <p className="text-gray-600 text-sm">
-            Last updated: March 2026 • We update our policies as needed to keep you protected.
+            • We update our policies as needed to keep you protected.
           </p>
           <p className="text-gray-500 text-xs mt-4">
             By using Protico's services, you agree to our Terms of Service and Privacy Policy. 

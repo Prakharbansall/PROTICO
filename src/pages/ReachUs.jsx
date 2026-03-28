@@ -40,10 +40,10 @@ function ReachUs() {
             <div className="flex items-start gap-3">
               <Mail className="text-[#3E103F]" />
               <a
-                href="mailto:contact@proticotechnology.com"
+                href="mailto:Get@resoneraaipvtltd.in"
                 className="text-gray-600 text-sm"
               >
-                contact@proticotechnology.com
+                Get@resoneraaipvtltd.in
               </a>
             </div>
 
@@ -102,10 +102,10 @@ function ReachUs() {
           Prefer email?
         </h2>
         <a
-          href="mailto:contact@proticotechnology.com"
+          href="mailto:Get@resoneraaipvtltd.in"
           className="text-[#3E103F] underline"
         >
-          contact@proticotechnology.com
+          Get@resoneraaipvtltd.in
         </a>
       </div>
 

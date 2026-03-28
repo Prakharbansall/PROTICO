@@ -15,7 +15,7 @@ function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Global Home", path: "/" },
+    { name: "Global Home", path: "https://protitech.in" },
     { name: "Architecture", path: "/solutions" },
     { name: "Perspectives", path: "/perspectives" },
     { name: "About", path: "/Company" },
@@ -36,7 +36,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-3">
         <div className="flex items-center justify-between ">
           {/* BRAND LOGO */}
-          <Link to="/" className="group flex items-center ">
+          <Link to="https://protitech.in/" className="group flex items-center ">
             <img src={logo} className="h-20 w-30" />
             <span className="text-yellow-400 font-semibold tracking-wide">
               &nbsp;&nbsp;PROTICO TECHNOLOGY

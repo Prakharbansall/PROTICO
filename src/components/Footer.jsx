@@ -36,12 +36,29 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
           
           {/* 1. BRAND IDENTITY */}
-          <div className="space-y-6">
-            <h2 className="text-xl font-black tracking-tighter text-[#D4AF37]">
-              <img src={logo} className="h-20 w-30"></img>
-              PROTICO<span className="text-white/50"> TECHNOLOGY PRIVATE LIMITED</span>
-            </h2>
-          </div>
+         
+
+<h2 className="text-xl font-black tracking-tighter text-[#D4AF37]">
+  <a 
+    href="https://protitech.in/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="flex flex-col items-center text-center gap-2"
+  >
+    <img 
+      src={logo} 
+      className="h-24 w-30 object-contain" 
+      alt="logo" 
+    />
+
+    <div>
+      PROTICO
+      <span className="block text-white/50 text-xl">
+        TECHNOLOGY PRIVATE LIMITED
+      </span>
+    </div>
+  </a>
+</h2>
 
           {/* 2. NAVIGATION PLATFORM */}
           <div>
@@ -99,8 +116,8 @@ function Footer() {
 
               <div className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-[#D4AF37] shrink-0" />
-                <a href="mailto:contact@proticotechnology.com" className="hover:text-white underline decoration-[#D4AF37]">
-                  contact@proticotechnology.com
+                <a href="mailto:Get@resoneraaipvtltd.in" className="hover:text-white underline decoration-[#D4AF37]">
+                  Get@resoneraaipvtltd.in
                 </a>
               </div>
             </div>

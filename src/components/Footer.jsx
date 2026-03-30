@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import {
   Mail,
   MapPin,
@@ -11,6 +12,8 @@ import {
 import logo from "../asset/logo.png";
 
 function Footer() {
+  const [subscribeEmail, setSubscribeEmail] = useState("");
+  const [subscribeStatus, setSubscribeStatus] = useState("");
   const currentYear = new Date().getFullYear();
 
   const navigationLinks = [
@@ -24,6 +27,20 @@ function Footer() {
   const legalLinks = [
     { name: "Terms of Service", path: "/legal" }
   ];
+
+  const handleSubscribe = (event) => {
+    event.preventDefault();
+    const emailValue = subscribeEmail.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(emailValue)) {
+      setSubscribeStatus("Please enter a valid email address.");
+      return;
+    }
+
+    setSubscribeStatus("Thank you for subscribing!");
+    setSubscribeEmail("");
+  };
 
   return (
     <footer className="bg-[#3E103F] text-white border-t border-[#5D2E60] mt-20 relative overflow-hidden">
@@ -95,6 +112,36 @@ function Footer() {
                 </li>
               ))}
             </ul>
+
+            <div className="mt-10">
+              <h5 className="text-[#D4AF37] text-xs font-black uppercase tracking-[0.2em] mb-4">
+                Subscribe
+              </h5>
+              <form onSubmit={handleSubscribe} className="space-y-3">
+                <label className="sr-only" htmlFor="footer-subscribe-email">
+                  Email address
+                </label>
+                <input
+                  id="footer-subscribe-email"
+                  type="email"
+                  value={subscribeEmail}
+                  onChange={(e) => setSubscribeEmail(e.target.value)}
+                  placeholder="Your email"
+                  className="w-full px-4 py-3 rounded-full border border-white/20 text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50"
+                />
+                <button
+                  type="submit"
+                  className="w-full rounded-full bg-[#D4AF37] px-6 py-3 text-[#3E103F] font-semibold transition hover:bg-[#F4D03F]"
+                >
+                  Subscribe
+                </button>
+                {subscribeStatus && (
+                  <p className={`text-sm ${subscribeStatus.startsWith("Thank") ? "text-green-300" : "text-red-300"}`}>
+                    {subscribeStatus}
+                  </p>
+                )}
+              </form>
+            </div>
           </div>
 
           {/* 4. HEADQUARTERS */}

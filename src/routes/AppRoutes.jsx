@@ -5,8 +5,9 @@ import Solutions from '../pages/Solutions'
 import Legal from '../pages/Legal'
 import Perspectives from '../pages/Perspectives'
 import ReachUs from '../pages/ReachUs'
+import NotFound from '../pages/NotFound'
 
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function ScrollToTop() {
@@ -29,6 +30,7 @@ function AppRoutes() {
       <Route path='/perspectives' element={<Perspectives/>}/>
       <Route path='/reach-us' element={<ReachUs/>}/>
       <Route path="/legal" element={<Legal />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
     </>
   )

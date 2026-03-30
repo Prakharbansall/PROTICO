@@ -9,6 +9,7 @@ function Hero({
   description,
   primaryCta,
   secondaryCta,
+  features = [],
 }) {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -17,7 +18,7 @@ function Hero({
   }, []);
 
   // default fallback (agar props na aaye)
-  const features = [
+  const defaultFeatures = [
     {
       icon: "✨",
       title: "Thoughtful Work",
@@ -37,18 +38,20 @@ function Hero({
       bg: "bg-[#D4AF37]/20",
     },
     {
-  icon: "📈",
-  title: "Progress Over Perfection",
-  desc: "We focus on moving forward instead of waiting for perfect",
-  bg: "bg-[#9B4DCA]/20",
-},
-{
-  icon: "🔍",
-  title: "Attention to Detail",
-  desc: "We care about the small things that improve the experience",
-  bg: "bg-[#D4AF37]/20",
-},
+      icon: "📈",
+      title: "Progress Over Perfection",
+      desc: "We focus on moving forward instead of waiting for perfect",
+      bg: "bg-[#9B4DCA]/20",
+    },
+    {
+      icon: "🔍",
+      title: "Attention to Detail",
+      desc: "We care about the small things that improve the experience",
+      bg: "bg-[#D4AF37]/20",
+    },
   ];
+
+  const heroFeatures = features.length ? features : defaultFeatures;
 
   return (
     <section className="relative bg-gradient-to-b from-[#1A0B2E] via-[#2D1B4E] to-[#3E103F] text-white pt-32 pb-32 overflow-hidden">
@@ -138,7 +141,7 @@ function Hero({
               <div className="relative z-10 h-full p-8 flex flex-col justify-between">
                 
                <div className="space-y-5">
-  {features.map((item, index) => (
+  {heroFeatures.map((item, index) => (
     <div
       key={index}
       className={`flex items-start gap-4 p-4 rounded-lg hover:bg-white/5 transition-all duration-700 ${

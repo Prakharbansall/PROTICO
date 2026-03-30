@@ -1,257 +1,194 @@
 import Hero from "../components/Hero";
 import Section from "../components/Section";
-import { Shield, Lock, Eye, AlertCircle } from "lucide-react";
+import { Shield, Lock, Eye, AlertCircle, FileText, Database } from "lucide-react";
 
 function Legal() {
+
+  const heroFeatures = [
+    {
+      icon: "🔒",
+      title: "Data Protection",
+      desc: "Your data is encrypted and protected at every level.",
+      bg: "bg-[#D4AF37]/20",
+    },
+    {
+      icon: "📜",
+      title: "Clear Policies",
+      desc: "Simple, transparent, and easy-to-understand terms.",
+      bg: "bg-[#9B4DCA]/20",
+    },
+    {
+      icon: "🛡️",
+      title: "Security First",
+      desc: "Built with modern security standards.",
+      bg: "bg-[#D4AF37]/20",
+    },
+    {
+      icon: "👁️",
+      title: "Full Transparency",
+      desc: "No hidden tracking or misuse of data.",
+      bg: "bg-[#9B4DCA]/20",
+    },
+  ];
+
   return (
     <div className="bg-[#FAF9FB] min-h-screen">
-      
-      {/* HERO */}
-      <div className="relative overflow-hidden bg-[#3E103F]">
-        <img 
-          src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=2000" 
-          alt="Legal" 
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
-          primaryCta={{ label: "Start a Project", to: "/solutions" }}
-        />
-        <div className="relative z-10">
-          <Hero
-            badge="Legal & Privacy"
-            title="Your Data is Safe With Us"
-            description="We take privacy seriously. Here's what you need to know about how we handle your information."
-            secondaryCta={{ label: "Contact Us", to: "/reach-us" }}
-          />
-        </div>
-      </div>
 
-      {/* INTRO - Make it Human */}
-      <Section subtitle="Legal Stuff" title="We Keep It Simple">
-        <div className="max-w-4xl mx-auto space-y-6">
-          <p className="text-xl text-gray-700 leading-relaxed font-medium">
-            Legal agreements don't have to be scary. Here's ours in plain English.
+      {/* HERO */}
+      <Hero
+        badge="Legal"
+        subtitle="Privacy • Security • Trust"
+        title="Built on Trust & Transparency"
+        description="We believe trust is the foundation of every startup. Here's how we protect your data and respect your privacy."
+        features={heroFeatures}
+        primaryCta={{ label: "Explore Services", to: "/solutions" }}
+        secondaryCta={{ label: "Contact Us", to: "/reach-us" }}
+      />
+
+      {/* INTRO */}
+      <Section subtitle="Overview" title="Simple. Clear. Honest.">
+        <div className="max-w-4xl mx-auto text-center space-y-4">
+          <p className="text-xl font-medium text-gray-700">
+            We don’t believe in complicated legal language.
           </p>
-          <p className="text-gray-600 leading-relaxed">
-            When you work with us or use our services, we want you to understand exactly what's happening 
-            with your data and information. No hidden terms. No surprises. Just honest communication.
+          <p className="text-gray-600">
+            Our policies are written to be understood - not hidden.
           </p>
         </div>
       </Section>
 
-      {/* PILLARS */}
-      <Section variant="soft" subtitle="Three Core Commitments" title="How We Protect You">
-        <div className="grid md:grid-cols-3 gap-8">
+      {/* CORE CARDS */}
+      <Section subtitle="Core Principles" title="What We Guarantee">
+        <div className="grid md:grid-cols-4 gap-6">
           {[
-            {
-              icon: Shield,
-              title: "Your Data is Private",
-              desc: "We don't sell your data. We don't share it without permission. Period."
-            },
-            {
-              icon: Lock,
-              title: "Security First",
-              desc: "Enterprise-grade encryption. Regular security audits. We take protection seriously."
-            },
-            {
-              icon: Eye,
-              title: "Full Transparency",
-              desc: "You always know what data we're collecting and why. No secrets."
-            }
+            { icon: Shield, title: "Privacy First", desc: "Your data stays yours." },
+            { icon: Lock, title: "Secure Systems", desc: "Protected infrastructure." },
+            { icon: Eye, title: "Transparency", desc: "No hidden actions." },
+            { icon: Database, title: "Minimal Data", desc: "Only what's needed." },
           ].map((item, i) => (
-            <div key={i} className="p-10 rounded-2xl bg-white border border-[#E5D6EB] hover:border-[#3E103F] transition-all text-center">
-              <div className="w-16 h-16 rounded-full bg-[#F3E8F7] flex items-center justify-center mx-auto mb-6">
-                <item.icon className="w-8 h-8 text-[#3E103F]" />
-              </div>
-              <h3 className="text-2xl font-black text-[#3E103F] mb-4">{item.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+            <div key={i} className="bg-white p-6 rounded-2xl border text-center">
+              <item.icon className="mx-auto mb-3 text-[#3E103F]" />
+              <h3 className="font-bold text-[#3E103F]">{item.title}</h3>
+              <p className="text-gray-600 text-sm">{item.desc}</p>
             </div>
           ))}
         </div>
       </Section>
 
-      {/* TERMS OF SERVICE */}
-      <Section subtitle="Agreement" title="Terms of Service">
-        <div className="max-w-4xl mx-auto space-y-8">
-          
-          <div className="p-8 rounded-2xl border border-[#E5D6EB] bg-white">
-            <h4 className="text-2xl font-black text-[#3E103F] mb-4">What You Get</h4>
-            <ul className="space-y-3 text-gray-700">
-              <li className="flex gap-3">
-                <span className="text-[#D4AF37] font-bold">✓</span>
-                <span>Access to our services and software as described in our agreements</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-[#D4AF37] font-bold">✓</span>
-                <span>Professional support during business hours</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-[#D4AF37] font-bold">✓</span>
-                <span>Regular updates and security patches</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-[#D4AF37] font-bold">✓</span>
-                <span>Access to your data whenever you need it</span>
-              </li>
+      {/* TERMS */}
+      <Section subtitle="Terms" title="Terms of Service">
+        <div className="max-w-4xl mx-auto space-y-6">
+
+          <div className="bg-white p-8 rounded-2xl border">
+            <h4 className="text-xl font-bold text-[#3E103F] mb-4 flex items-center gap-2">
+              <FileText size={18}/> What You Get
+            </h4>
+            <ul className="space-y-2 text-gray-700">
+              <li>✓ Access to all agreed services</li>
+              <li>✓ Continuous support & updates</li>
+              <li>✓ Secure infrastructure</li>
+              <li>✓ Data ownership & access</li>
             </ul>
           </div>
 
-          <div className="p-8 rounded-2xl border border-[#E5D6EB] bg-white">
-            <h4 className="text-2xl font-black text-[#3E103F] mb-4">What We Ask From You</h4>
-            <ul className="space-y-3 text-gray-700">
-              <li className="flex gap-3">
-                <span className="text-[#D4AF37] font-bold">•</span>
-                <span>Use our services legally and responsibly</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-[#D4AF37] font-bold">•</span>
-                <span>Don't try to hack or abuse our systems</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-[#D4AF37] font-bold">•</span>
-                <span>Pay invoices on time (this is important to us)</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-[#D4AF37] font-bold">•</span>
-                <span>Tell us if you see a security issue</span>
-              </li>
+          <div className="bg-white p-8 rounded-2xl border">
+            <h4 className="text-xl font-bold text-[#3E103F] mb-4">
+              Your Responsibilities
+            </h4>
+            <ul className="space-y-2 text-gray-700">
+              <li>• Use services responsibly</li>
+              <li>• Respect system integrity</li>
+              <li>• Clear communication</li>
+              <li>• Timely payments</li>
             </ul>
           </div>
+
         </div>
       </Section>
 
-      {/* PRIVACY POLICY */}
-      <Section variant="soft" subtitle="Your Information" title="Privacy Policy">
+      {/* PRIVACY */}
+      <Section subtitle="Privacy" title="How We Handle Data">
         <div className="max-w-4xl mx-auto space-y-6">
+
           <div>
-            <h4 className="text-2xl font-black text-[#3E103F] mb-4">What Data Do We Collect?</h4>
-            <div className="space-y-3 text-gray-700">
-              <p>
-                <strong>When you contact us:</strong> Your name, email, phone number, and message.
-              </p>
-              <p>
-                <strong>When you use our services:</strong> Information about how you use them 
-                (logins, features used, etc.). This helps us improve.
-              </p>
-              <p>
-                <strong>Payment info:</strong> We use secure payment processors. We never store full credit card numbers.
-              </p>
-            </div>
+            <h4 className="text-xl font-bold text-[#3E103F] mb-2">Data Collection</h4>
+            <p className="text-gray-600">
+              We only collect essential information required to provide our services.
+            </p>
           </div>
 
-          <div className="border-t border-[#E5D6EB] pt-6">
-            <h4 className="text-2xl font-black text-[#3E103F] mb-4">How Do We Use It?</h4>
-            <div className="space-y-3 text-gray-700">
-              <p>✓ To provide you with our services</p>
-              <p>✓ To improve our products (we're always learning)</p>
-              <p>✓ To keep you updated (only if you opt in)</p>
-              <p>✓ To prevent fraud and security issues</p>
-              <p>✗ We do NOT sell your data to third parties</p>
-            </div>
+          <div>
+            <h4 className="text-xl font-bold text-[#3E103F] mb-2">Usage</h4>
+            <p className="text-gray-600">
+              Data is used to improve services, provide support, and enhance experience.
+            </p>
           </div>
 
-          <div className="border-t border-[#E5D6EB] pt-6">
-            <h4 className="text-2xl font-black text-[#3E103F] mb-4">Your Rights</h4>
-            <div className="space-y-3 text-gray-700">
-              <p>
-                <strong>Access:</strong> You can ask us what data we have about you.
-              </p>
-              <p>
-                <strong>Delete:</strong> You can request we delete your data (subject to legal requirements).
-              </p>
-              <p>
-                <strong>Export:</strong> You can get a copy of your data anytime.
-              </p>
-              <p>
-                <strong>Opt-out:</strong> Unsubscribe from marketing emails anytime.
-              </p>
-            </div>
+          <div>
+            <h4 className="text-xl font-bold text-[#3E103F] mb-2">No Selling</h4>
+            <p className="text-gray-600">
+              We never sell or share your data with third parties.
+            </p>
           </div>
+
         </div>
       </Section>
 
       {/* SECURITY */}
-      <Section subtitle="Protection" title="How We Keep Your Data Safe">
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div className="p-8 rounded-2xl bg-white border border-[#E5D6EB]">
-            <h4 className="text-xl font-black text-[#3E103F] mb-4">Technical Security</h4>
-            <ul className="space-y-2 text-gray-700 text-sm">
-              <li>✓ SSL encryption for all data in transit</li>
-              <li>✓ AES-256 encryption at rest</li>
-              <li>✓ Regular security audits</li>
-              <li>✓ Automated backups</li>
-              <li>✓ Firewalls and intrusion detection</li>
+      <Section subtitle="Security" title="Protection Systems">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+
+          <div className="bg-white p-6 rounded-2xl border">
+            <h4 className="font-bold text-[#3E103F] mb-2">Technical</h4>
+            <ul className="text-gray-600 text-sm space-y-1">
+              <li>✓ SSL encryption</li>
+              <li>✓ Secure servers</li>
+              <li>✓ Regular backups</li>
             </ul>
           </div>
-          <div className="p-8 rounded-2xl bg-white border border-[#E5D6EB]">
-            <h4 className="text-xl font-black text-[#3E103F] mb-4">Operational Security</h4>
-            <ul className="space-y-2 text-gray-700 text-sm">
-              <li>✓ Limited employee access to data</li>
-              <li>✓ Strong password policies</li>
-              <li>✓ Security training for all staff</li>
-              <li>✓ Incident response plan</li>
-              <li>✓ Regular penetration testing</li>
+
+          <div className="bg-white p-6 rounded-2xl border">
+            <h4 className="font-bold text-[#3E103F] mb-2">Operational</h4>
+            <ul className="text-gray-600 text-sm space-y-1">
+              <li>✓ Limited access</li>
+              <li>✓ Internal security checks</li>
+              <li>✓ Monitoring systems</li>
             </ul>
           </div>
+
         </div>
       </Section>
 
-      {/* COOKIES & TRACKING */}
-      <Section subtitle="Transparency" title="Cookies & Analytics">
-        <div className="max-w-4xl mx-auto space-y-6">
-          <div className="p-8 rounded-2xl border-2 border-[#D4AF37]/30 bg-white">
-            <div className="flex gap-4 items-start">
-              <AlertCircle className="w-6 h-6 text-[#D4AF37] shrink-0 mt-1" />
-              <div>
-                <h4 className="font-black text-[#3E103F] mb-2">No Creepy Tracking</h4>
-                <p className="text-gray-700">
-                  We use basic analytics to understand how people use our site. 
-                  No tracking pixels. No third-party cookies. No selling to ad networks.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <p className="text-gray-600">
-            We use industry-standard analytics tools that respect your privacy. 
-            You can always opt out of analytics in your browser settings.
-          </p>
-        </div>
-      </Section>
-
-      {/* CONTACT */}
-      <Section subtitle="Questions?" title="Reach Our Legal Team">
-        <div className="max-w-4xl mx-auto relative rounded-[3rem] overflow-hidden shadow-2xl">
-          <img 
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" 
-            alt="Contact" 
-            className="absolute inset-0 w-full h-full object-cover opacity-30"
-          />
-          <div className="relative bg-[#3E103F]/80 p-16 text-center text-white backdrop-blur-sm">
-            <h3 className="text-3xl font-black mb-4">Have Questions About Privacy?</h3>
-            <p className="max-w-2xl mx-auto mb-8 text-[#E2D1F9] text-lg">
-              We're happy to explain anything. Email us anytime and we'll get back to you within 24 hours.
+      {/* COOKIES */}
+      <Section subtitle="Tracking" title="No Unnecessary Tracking">
+        <div className="max-w-3xl mx-auto bg-white p-6 rounded-2xl border">
+          <div className="flex gap-3">
+            <AlertCircle className="text-[#D4AF37]" />
+            <p className="text-gray-700">
+              We use only basic analytics. No creepy tracking. No ads. No selling data.
             </p>
-            <a
-              href="mailto:Get@resoneraaipvtltd.in"
-              className="inline-block bg-[#D4AF37] hover:bg-white text-[#3E103F] px-10 py-4 rounded-full font-black text-lg transition-all transform hover:scale-105 shadow-lg"
-            >
-              Get@resoneraaipvtltd.in
-            </a>
           </div>
         </div>
       </Section>
 
-      {/* FOOTER NOTE */}
-      <div className="bg-white border-t border-[#E5D6EB] py-12">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-gray-600 text-sm">
-            • We update our policies as needed to keep you protected.
-          </p>
-          <p className="text-gray-500 text-xs mt-4">
-            By using Protico's services, you agree to our Terms of Service and Privacy Policy. 
-            If you don't agree, please let us know.
-          </p>
-        </div>
+      {/* CTA */}
+      <div className="py-16 text-center">
+        <h2 className="text-3xl font-bold text-[#3E103F] mb-4">
+          Questions About Privacy?
+        </h2>
+
+        <p className="text-gray-600 mb-6">
+          We’re always open to explain everything clearly.
+        </p>
+
+        <a
+          href="mailto:reply@protitech.in"
+          className="bg-[#3E103F] text-white px-8 py-3 rounded-full font-semibold"
+        >
+          Contact Legal Team
+        </a>
       </div>
+
     </div>
   );
 }

@@ -14,17 +14,15 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   const navigationLinks = [
-    { name: "Home Portal", path: "/" },
-    { name: "Our Solutions", path: "/solutions" },
-    { name: "Perspectives", path: "/perspectives" },
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/solutions" },
+    { name: "Insights", path: "/perspectives" },
     { name: "About", path: "/company" },
-    { name: "Contact Hub", path: "/reach-us" },
+    { name: "Contact", path: "/reach-us" },
   ];
 
   const legalLinks = [
-    { name: "Terms of Service", path: "/legal" },
-    { name: "Privacy Protocol", path: "/legal" },
-    { name: "Data Security", path: "/legal" },
+    { name: "Terms of Service", path: "/legal" }
   ];
 
   return (
@@ -108,16 +106,14 @@ function Footer() {
               <div className="flex items-start gap-4">
                 <MapPin className="w-5 h-5 text-[#D4AF37] shrink-0" />
                 <address className="not-italic leading-relaxed">
-                  Sector 4, Vaishali<br />
-                  Ghaziabad, NCR Region<br />
-                  Uttar Pradesh, India
+                  Office No 130 Ist Floor, Cloud 9 Sec-1 Vaishali, I.e.sahibabad, Ghaziabad, Ghaziabad, Uttar Pradesh, India, 201010.Vaishali<br />
                 </address>
               </div>
 
               <div className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-[#D4AF37] shrink-0" />
-                <a href="mailto:Get@resoneraaipvtltd.in" className="hover:text-white underline decoration-[#D4AF37]">
-                  Get@resoneraaipvtltd.in
+                <a href="mailto:reply@protitech.in" className="hover:text-white underline decoration-[#D4AF37]">
+                  reply@protitech.in
                 </a>
               </div>
             </div>

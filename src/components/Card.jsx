@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Card({
   icon: Icon,
@@ -6,6 +7,7 @@ function Card({
   description,
   badge,
   ctaText,
+  to,
   onClick,
   variant = "default",
   className = "",
@@ -72,11 +74,10 @@ function Card({
     minimal: "text-[#3E103F] border-b border-[#3E103F] w-fit",
   };
 
-  return (
-    <div
-      onClick={onClick}
-      className={`group relative p-8 rounded-[2rem] cursor-pointer ${variants[variant]} ${className}`}
-    >
+  const wrapperClass = `group relative p-8 rounded-[2rem] cursor-pointer ${variants[variant]} ${className}`;
+
+  const cardContent = (
+    <>
       {/* BADGE - Positioned with more "Air" */}
       {badge && (
         <span
@@ -119,6 +120,20 @@ function Card({
 
       {/* PREMIUM GLOW EFFECT - Updated for Royal Plum */}
       <div className="absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-10 transition duration-700 pointer-events-none bg-gradient-to-tr from-[#D4AF37] via-transparent to-[#3E103F]" />
+    </>
+  );
+
+  if (to) {
+    return (
+      <Link to={to} className={wrapperClass}>
+        {cardContent}
+      </Link>
+    );
+  }
+
+  return (
+    <div onClick={onClick} className={wrapperClass}>
+      {cardContent}
     </div>
   );
 }

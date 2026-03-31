@@ -119,8 +119,8 @@ function Home() {
         title="We Build Products That People Actually Use"
         description="We collaborate with ambitious founders to design, build, and launch digital products that solve real problems and scale with confidence."
         features={heroFeatures}
-        primaryCta={{ label: "Start Your Project", to: "/solutions" }}
-        secondaryCta={{ label: "Talk to Us", to: "/reach-us" }}
+        primaryCta={{ label: "Start Your Project", to: "/services" }}
+        secondaryCta={{ label: "Talk to Us", to: "/contact" }}
       />
 
       {/* ABOUT */}
@@ -158,7 +158,7 @@ function Home() {
             </ul>
 
             <Link
-              to="/company"
+              to="/about"
               className="inline-flex items-center gap-2 font-bold text-[#3E103F] border-b-2 border-[#D4AF37]"
             >
               Learn More <ArrowRight className="w-4 h-4" />
@@ -178,7 +178,7 @@ function Home() {
           {services.map((item, i) => (
             <Card
               key={i}
-              to="/solutions"
+              to="/services"
               variant="royal"
               icon={item.icon}
               title={item.title}
@@ -255,7 +255,7 @@ function Home() {
         </p>
 
         <Link
-          to="/reach-us"
+          to="/contact"
           className="bg-[#3E103F] text-white px-10 py-4 rounded-full font-bold inline-flex items-center gap-2"
         >
           Get Started <ArrowRight />

@@ -41,8 +41,8 @@ function Legal() {
         title="Built on Trust & Transparency"
         description="We believe trust is the foundation of every startup. Here's how we protect your data and respect your privacy."
         features={heroFeatures}
-        primaryCta={{ label: "Explore Services", to: "/solutions" }}
-        secondaryCta={{ label: "Contact Us", to: "/reach-us" }}
+        primaryCta={{ label: "Explore Services", to: "/services" }}
+        secondaryCta={{ label: "Contact Us", to: "/contact" }}
       />
 
       {/* INTRO */}

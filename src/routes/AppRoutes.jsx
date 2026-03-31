@@ -25,10 +25,10 @@ function AppRoutes() {
     <ScrollToTop />
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/company" element={<Company />} />
-      <Route path="/solutions" element={<Solutions />} />
-      <Route path='/perspectives' element={<Perspectives/>}/>
-      <Route path='/reach-us' element={<ReachUs/>}/>
+      <Route path="/about" element={<Company />} />
+      <Route path="/services" element={<Solutions />} />
+      <Route path='/insights' element={<Perspectives/>}/>
+      <Route path='/contact' element={<ReachUs/>}/>
       <Route path="/legal" element={<Legal />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

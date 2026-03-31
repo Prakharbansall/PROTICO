@@ -18,10 +18,10 @@ function Footer() {
 
   const navigationLinks = [
     { name: "Home", path: "/" },
-    { name: "Services", path: "/solutions" },
-    { name: "Insights", path: "/perspectives" },
-    { name: "About", path: "/company" },
-    { name: "Contact", path: "/reach-us" },
+    { name: "Services", path: "/services" },
+    { name: "Insights", path: "/insights" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
   ];
 
   const legalLinks = [

@@ -127,8 +127,8 @@ function Perspectives() {
         title="How We Think About Building Startups"
         description="These are the principles and lessons that guide how we build, launch, and scale products."
         features={heroFeatures}
-        primaryCta={{ label: "Start a Project", to: "/solutions" }}
-        secondaryCta={{ label: "Contact Us", to: "/reach-us" }}
+        primaryCta={{ label: "Start a Project", to: "/services" }}
+        secondaryCta={{ label: "Contact Us", to: "/contact" }}
       />
 
       {/* PRINCIPLES */}
@@ -209,7 +209,7 @@ function Perspectives() {
         </p>
 
         <Link
-          to="/reach-us"
+          to="/contact"
           className="bg-[#3E103F] text-white px-8 py-3 rounded-full font-semibold inline-flex items-center gap-2"
         >
           Get Started <ArrowRight size={16} />

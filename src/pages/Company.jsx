@@ -93,8 +93,8 @@ function Company() {
         title="We Build Startups - Not Just Projects"
         description="We are a small team focused on helping founders build real products with speed and clarity."
         features={heroFeatures}
-        primaryCta={{ label: "Start Your Project", to: "/solutions" }}
-        secondaryCta={{ label: "Contact Us", to: "/reach-us" }}
+        primaryCta={{ label: "Start Your Project", to: "/services" }}
+        secondaryCta={{ label: "Contact Us", to: "/contact" }}
       />
 
       {/* STORY */}
@@ -185,7 +185,7 @@ function Company() {
         </p>
 
         <Link
-          to="/reach-us"
+          to="/contact"
           className="bg-[#3E103F] text-white px-8 py-3 rounded-full font-semibold"
         >
           Get Started

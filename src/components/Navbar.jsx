@@ -16,9 +16,9 @@ function Navbar() {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Services", path: "/solutions" },
-    { name: "Insights", path: "/perspectives" },
-    { name: "About", path: "/company" }
+    { name: "Services", path: "/services" },
+    { name: "Insights", path: "/insights" },
+    { name: "About", path: "/about" }
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -58,7 +58,7 @@ function Navbar() {
           ))}
 
           <Link
-            to="/reach-us"
+            to="/contact"
             className="bg-[#D4AF37] text-[#3E103F] px-6 py-2 rounded-full font-bold flex items-center gap-2"
           >
             Get Started <ChevronRight size={16} />
@@ -89,7 +89,7 @@ function Navbar() {
           ))}
 
           <Link
-            to="/reach-us"
+            to="/contact"
             onClick={() => setIsOpen(false)}
             className="block bg-[#D4AF37] text-[#3E103F] py-3 rounded-full font-bold"
           >

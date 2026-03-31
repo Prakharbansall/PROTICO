@@ -145,8 +145,8 @@ function Solutions() {
         title="Solutions Designed for Startups"
         description="We help founders build products that actually work - fast, scalable, and ready to grow."
         features={heroFeatures}
-        primaryCta={{ label: "Start Your Project", to: "/reach-us" }}
-        secondaryCta={{ label: "Talk to Us", to: "/reach-us" }}
+        primaryCta={{ label: "Start Your Project", to: "/contact" }}
+        secondaryCta={{ label: "Talk to Us", to: "/contact" }}
       />
 
       {/* SERVICES */}
@@ -155,7 +155,7 @@ function Solutions() {
           {services.map((item, i) => (
             <Card
               key={i}
-              to="/reach-us"
+              to="/contact"
               icon={item.icon}
               title={item.title}
               description={item.desc}
@@ -172,7 +172,7 @@ function Solutions() {
           {caseStudies.map((item, i) => (
             <Card
               key={i}
-              to="/reach-us"
+              to="/contact"
               icon={item.icon}
               title={item.title}
               description={item.desc}
@@ -207,7 +207,7 @@ function Solutions() {
         </p>
 
         <Link
-          to="/reach-us"
+          to="/contact"
           className="bg-[#D4AF37] text-[#3E103F] px-10 py-4 rounded-full font-bold inline-flex items-center gap-2"
         >
           Get Started <ArrowRight />

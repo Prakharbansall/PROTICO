@@ -21,11 +21,6 @@ function ReachUs() {
 
   const connectOptions = [
     {
-      icon: Phone,
-      title: "Call Us",
-      desc: "Quick discussion with our team."
-    },
-    {
       icon: Mail,
       title: "Email Us",
       desc: "Share your idea anytime.",
@@ -175,7 +170,7 @@ function ReachUs() {
 
       {/* CONNECT OPTIONS */}
       <Section subtitle="Options" title="Other Ways to Connect">
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-12">
           {connectOptions.map((item, i) => (
             <div key={i} className="bg-white p-6 rounded-2xl border text-center">
               <item.icon className="mx-auto mb-3 text-[#3E103F]" />

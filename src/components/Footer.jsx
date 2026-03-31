@@ -153,7 +153,7 @@ function Footer() {
               <div className="flex items-start gap-4">
                 <MapPin className="w-5 h-5 text-[#D4AF37] shrink-0" />
                 <address className="not-italic leading-relaxed">
-                  Office No 130 Ist Floor, Cloud 9 Sec-1 Vaishali, I.e.sahibabad, Ghaziabad, Ghaziabad, Uttar Pradesh, India, 201010.Vaishali<br />
+                  Office No 130 Ist Floor, Cloud 9 Sec-1 Vaishali, I.e.sahibabad, Ghaziabad, Ghaziabad, Uttar Pradesh, India, 201010.<br />
                 </address>
               </div>
 

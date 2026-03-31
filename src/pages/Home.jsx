@@ -20,91 +20,91 @@ function Home() {
   const services = [
     {
       icon: Rocket,
-      title: "Web Applications",
-      desc: "We build scalable, high-performance web apps designed for real users and real growth.",
-      badge: "CORE"
+      title: "Product Development",
+      desc: "We turn ideas into fast, scalable digital products ready for real users.",
+      badge: "BUILD"
     },
     {
       icon: BarChart3,
-      title: "Data & Analytics",
-      desc: "Transform raw data into meaningful insights that help you take smarter decisions.",
-      badge: "INSIGHTS"
+      title: "Data Intelligence",
+      desc: "Actionable insights that drive smarter decisions and faster growth.",
+      badge: "DATA"
     },
     {
       icon: Shield,
-      title: "Digital Security",
-      desc: "Security-first mindset to keep your product and users safe from day one.",
+      title: "Security & Stability",
+      desc: "Strong foundations that keep your platform reliable and secure.",
       badge: "SECURE"
     },
     {
       icon: Globe,
-      title: "SaaS Platforms",
-      desc: "We design and develop SaaS products ready to scale globally.",
-      badge: "SAAS"
+      title: "Platform Engineering",
+      desc: "Systems designed to scale seamlessly as your product grows.",
+      badge: "SCALE"
     },
     {
       icon: Users,
       title: "User Experience",
-      desc: "Clean, modern UI/UX that people actually enjoy using.",
+      desc: "Interfaces that are simple, intuitive, and built for engagement.",
       badge: "UX"
     },
     {
       icon: TrendingUp,
-      title: "Growth Systems",
-      desc: "Build systems that support your startup growth and user acquisition.",
+      title: "Growth Enablement",
+      desc: "Technology aligned with your business growth and traction goals.",
       badge: "GROWTH"
     }
   ];
 
   const stats = [
-    { value: "20+", label: "Projects in progress" },
-    { value: "48h", label: "Fast delivery cycles" },
-    { value: "100%", label: "Client transparency" },
-    { value: "5+", label: "Startup collaborations" },
+    { value: "20+", label: "Active builds" },
+    { value: "48h", label: "Iteration cycles" },
+    { value: "100%", label: "Transparency" },
+    { value: "5+", label: "Founder partnerships" },
   ];
 
   const deliveryFeatures = [
     {
-      title: "Rapid Iteration",
-      desc: "We launch fast, learn quickly, and improve continuously.",
+      title: "Ship Fast",
+      desc: "We focus on speed without compromising product quality.",
     },
     {
-      title: "Clear Communication",
-      desc: "You always know what's happening and what's next.",
+      title: "Stay Aligned",
+      desc: "Clear communication at every step of the journey.",
     },
     {
-      title: "Scalable Code",
-      desc: "Built with future growth in mind from day one.",
+      title: "Think Long-Term",
+      desc: "Every line of code is built for future scale.",
     },
     {
-      title: "Startup Focused",
-      desc: "Everything we build is aligned with startup needs.",
+      title: "Execution First",
+      desc: "Less talk, more building. We prioritize results.",
     },
   ];
 
   const heroFeatures = [
     {
       icon: "🚀",
-      title: "Launch Fast",
-      desc: "From idea to product in minimum time.",
+      title: "From Idea to Product",
+      desc: "We bring concepts to life quickly.",
       bg: "bg-[#D4AF37]/20",
     },
     {
       icon: "⚡",
-      title: "Speed + Quality",
-      desc: "Fast delivery without compromising quality.",
+      title: "Fast Execution",
+      desc: "Speed is our default mode.",
       bg: "bg-[#9B4DCA]/20",
     },
     {
       icon: "📈",
-      title: "Grow Smart",
-      desc: "We help you scale step by step.",
+      title: "Built to Scale",
+      desc: "Growth-ready architecture from day one.",
       bg: "bg-[#D4AF37]/20",
     },
     {
       icon: "🤝",
-      title: "Real Partnership",
-      desc: "We grow with your startup.",
+      title: "Founder Mindset",
+      desc: "We think like partners, not vendors.",
       bg: "bg-[#9B4DCA]/20",
     },
   ];
@@ -114,47 +114,47 @@ function Home() {
 
       {/* HERO */}
       <Hero
-        badge="Startup Focused Team"
+        badge="Product Engineering Team"
         subtitle="Build • Launch • Scale"
-        title="We Build Startups That Actually Work"
-        description="We partner with founders to shape ideas into product-ready MVPs, launch fast, and keep iterating based on real user feedback."
+        title="We Build Products That People Actually Use"
+        description="We collaborate with ambitious founders to design, build, and launch digital products that solve real problems and scale with confidence."
         features={heroFeatures}
         primaryCta={{ label: "Start Your Project", to: "/solutions" }}
-        secondaryCta={{ label: "Contact Team", to: "/reach-us" }}
+        secondaryCta={{ label: "Talk to Us", to: "/reach-us" }}
       />
 
       {/* ABOUT */}
-      <Section subtitle="About Us" title="A Startup Building for Startups">
+      <Section subtitle="Who We Are" title="A Team Focused on Execution">
         <div className="max-w-3xl text-center mx-auto space-y-4">
           <p className="text-gray-700">
-            We are a lean digital team built like a startup: fast, practical, and relentlessly focused on outcomes.
-            We help founders move from concept to customer-ready product without the usual delays.
+            We are a lean, product-focused team that moves fast and builds with clarity.
+            Our goal is simple- help you turn ideas into working products without unnecessary delays.
           </p>
           <p className="text-gray-600">
-            Our mission is simple: create startup-ready products that launch quickly, grow sustainably, and deliver real value.
+            No fluff, no overengineering. Just practical execution that delivers results.
           </p>
         </div>
       </Section>
 
       {/* WHY US */}
-      <Section subtitle="Why Choose Us" title="Built for Founders">
+      <Section subtitle="Why Us" title="Built for Speed & Clarity">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           <div className="space-y-6">
             <h3 className="text-3xl font-black text-[#3E103F]">
-              We keep things simple, fast, and effective.
+              We focus on what actually moves your product forward.
             </h3>
 
             <p className="text-gray-700">
-              No unnecessary complexity. We focus only on what matters for your product success.
+              Everything we do is centered around speed, usability, and long-term scalability.
             </p>
 
             <ul className="space-y-3 text-gray-600">
-              <li>✔ Startup mindset</li>
-              <li>✔ Fast execution</li>
-              <li>✔ Scalable architecture</li>
-              <li>✔ Founder-first collaboration</li>
-              <li>✔ Data-informed decisions</li>
+              <li>✔ Fast and focused execution</li>
+              <li>✔ Clean and scalable systems</li>
+              <li>✔ Clear communication</li>
+              <li>✔ Product-first thinking</li>
+              <li>✔ Data-driven improvements</li>
             </ul>
 
             <Link
@@ -172,10 +172,8 @@ function Home() {
         </div>
       </Section>
 
-
-
       {/* SERVICES */}
-      <Section subtitle="Services" title="What We Offer">
+      <Section subtitle="What We Do" title="Core Capabilities">
         <div className="grid md:grid-cols-3 gap-6">
           {services.map((item, i) => (
             <Card
@@ -192,8 +190,8 @@ function Home() {
         </div>
       </Section>
 
-      {/* DELIVERY */}
-      <Section subtitle="Process" title="How We Deliver">
+      {/* PROCESS */}
+      <Section subtitle="Process" title="How We Work">
         <div className="grid md:grid-cols-4 gap-6">
           {deliveryFeatures.map((item, i) => (
             <div key={i} className="bg-white p-6 rounded-2xl border">
@@ -204,41 +202,13 @@ function Home() {
         </div>
       </Section>
 
-      <Section subtitle="Startup DNA" title="What Makes Our Work Startup-ready">
-        <div className="grid md:grid-cols-4 gap-6">
-          {[
-            {
-              title: "MVP-first",
-              desc: "We launch early and learn from real users.",
-            },
-            {
-              title: "Growth-focused",
-              desc: "Every feature is designed to help your business move forward.",
-            },
-            {
-              title: "Lean execution",
-              desc: "We keep things effective, not bloated.",
-            },
-            {
-              title: "Flexible roadmaps",
-              desc: "We adjust quickly as priorities change.",
-            },
-          ].map((item, i) => (
-            <div key={i} className="bg-white p-8 rounded-3xl border border-[#E5D6EB] shadow-sm">
-              <h3 className="font-semibold text-[#3E103F] mb-3">{item.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* PROCESS STEPS */}
-      <Section subtitle="Workflow" title="Our Working Process">
+      {/* WORKFLOW */}
+      <Section subtitle="Workflow" title="Execution Flow">
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { num: "01", title: "Research", desc: "Understanding your idea deeply." },
-            { num: "02", title: "Development", desc: "Building clean and scalable systems." },
-            { num: "03", title: "Launch & Grow", desc: "Deploy and improve continuously." }
+            { num: "01", title: "Understand", desc: "We deeply understand your idea and goals." },
+            { num: "02", title: "Build", desc: "We design and develop with speed and precision." },
+            { num: "03", title: "Launch & Iterate", desc: "We deploy, measure, and continuously improve." }
           ].map((step, i) => (
             <div key={i} className="bg-white p-8 rounded-2xl border">
               <div className="text-4xl font-black text-[#D4AF37] mb-4">{step.num}</div>
@@ -250,25 +220,25 @@ function Home() {
       </Section>
 
       {/* TRUST */}
-      <Section subtitle="Principles" title="What Makes Us Different">
+      <Section subtitle="Principles" title="What We Stand For">
         <div className="grid md:grid-cols-3 gap-8 text-center">
 
           <div>
             <Zap className="mx-auto text-[#D4AF37]" size={32} />
-            <h4 className="font-bold mt-4 text-[#3E103F]">Fast Execution</h4>
-            <p className="text-gray-600 text-sm">Speed matters in startups.</p>
+            <h4 className="font-bold mt-4 text-[#3E103F]">Speed</h4>
+            <p className="text-gray-600 text-sm">Execution over perfection.</p>
           </div>
 
           <div>
             <Code className="mx-auto text-[#D4AF37]" size={32} />
-            <h4 className="font-bold mt-4 text-[#3E103F]">Clean Code</h4>
-            <p className="text-gray-600 text-sm">Maintainable & scalable.</p>
+            <h4 className="font-bold mt-4 text-[#3E103F]">Quality</h4>
+            <p className="text-gray-600 text-sm">Clean, scalable systems.</p>
           </div>
 
           <div>
             <Shield className="mx-auto text-[#D4AF37]" size={32} />
-            <h4 className="font-bold mt-4 text-[#3E103F]">Full Transparency</h4>
-            <p className="text-gray-600 text-sm">No hidden surprises.</p>
+            <h4 className="font-bold mt-4 text-[#3E103F]">Trust</h4>
+            <p className="text-gray-600 text-sm">Transparent collaboration.</p>
           </div>
 
         </div>
@@ -277,11 +247,11 @@ function Home() {
       {/* CTA */}
       <div className="bg-[#D4AF37] py-20 text-center">
         <h2 className="text-4xl font-black text-[#3E103F] mb-4">
-          Ready to Build Something Big?
+          Let’s Build Something Meaningful
         </h2>
 
         <p className="text-[#3E103F]/80 mb-8">
-          Let’s turn your idea into a real product.
+          Turn your idea into a real, working product.
         </p>
 
         <Link

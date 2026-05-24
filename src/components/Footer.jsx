@@ -55,7 +55,7 @@ function Footer() {
 
 <h2 className="text-xl font-black tracking-tighter text-[#D4AF37]">
   <a 
-    href="https://protitech.in/" 
+    href="https://protico.vercel.app/" 
     target="_blank" 
     rel="noopener noreferrer"
     className="flex flex-col items-center text-center gap-2"
